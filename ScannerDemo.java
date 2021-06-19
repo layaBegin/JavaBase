@@ -40,7 +40,10 @@ public class ScannerDemo {
 		//System.out.println((i++ > 100) & (j++ > 100)); //false & false
 		System.out.println((i++ > 100) && (j++ > 100)); //false && false
 		System.out.println("i:" + i);
-		System.out.println("j:" + j);	
+		System.out.println("j:" + j);
+		
+		
+		
 
 	}
 }
