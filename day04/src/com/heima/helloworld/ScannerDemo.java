@@ -42,6 +42,7 @@ public class ScannerDemo {
 
 		//------要完成猜数字的游戏，首先需要有一个要猜的数字，使用随机数生成该数字，范围1到100-----------------
 		Random r = new Random();
+		//随机数的概念 r.netxtInt(x) 会生成 0-x 的随机数，后面+ y 表示 y-x+y 的随机数
 		int num  = r.nextInt(50)+1;
 
 		Scanner sc = new Scanner(System.in);
