@@ -14,7 +14,7 @@ public class Student {
         System.out.println(country);
         System.out.println(Student.country);
         Student.getMax(5,6);
-        st.getMax(3,5);//静态方法不建议用实例调用
+        st.getMax(3,5);//静态方法不建议用实例调用      11
     }
 
     public void run(){
