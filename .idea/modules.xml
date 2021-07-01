@@ -18,6 +18,7 @@
       <module fileurl="file://$PROJECT_DIR$/jinjieDay07_logback/jinjieDay07_logback.iml" filepath="$PROJECT_DIR$/jinjieDay07_logback/jinjieDay07_logback.iml" />
       <module fileurl="file://$PROJECT_DIR$/jinjieDay08_Thread/jinjieDay08_Thread.iml" filepath="$PROJECT_DIR$/jinjieDay08_Thread/jinjieDay08_Thread.iml" />
       <module fileurl="file://$PROJECT_DIR$/jinjieDay09_Thread/jinjieDay09_Thread.iml" filepath="$PROJECT_DIR$/jinjieDay09_Thread/jinjieDay09_Thread.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jinjieDay10_File_IO/jinjieDay10_File_IO.iml" filepath="$PROJECT_DIR$/jinjieDay10_File_IO/jinjieDay10_File_IO.iml" />
     </modules>
   </component>
 </project>
