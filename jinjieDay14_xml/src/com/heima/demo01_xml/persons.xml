@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persons>
+    <person id="1">
+        <name>zhangshan</name>
+        <!--
+            &lt; <小于
+            &gt; >大于
+            &amp; &和号
+            &apos; '单引号
+            &quot; "引号
+        -->
+        <age>19&lt;20</age>
+    </person>
+<!--    XML文件中可以存在CDATA区: <![CDATA[   …内容…  ]]>-->
+    <![CDATA[<<<<<<<<<<<<]]>
+    <person id="2">
+        <name>lishi</name>
+        <age>39</age>
+    </person>
+</persons>
+
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Students>
+    <student id="1">
+        <name>zhangshan</name>
+        <age>19</age>
+    </student>
+    <student id="2">
+        <name>lishi</name>
+        <age>39</age>
+    </student>
+    <student id="2">
+        <age>
+            <name>heheh</name>
+        </age>
+    </student>
+    <name>wangwu</name>
+</Students>
+
+<!--Dom 解析文档对象模型 ，node对象为下面所有对象的父类
+Element对象 所有标签
+Attribute对象 所有属性 例如id
+Text对象 所有文本内容（值）
+
+-->

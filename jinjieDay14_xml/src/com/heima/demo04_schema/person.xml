@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persons
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="suibian"
+        xsi:schemaLocation ="suibian person1.xsd"
+>
+    <name>sddf</name>
+    <age>30</age>
+</persons>
