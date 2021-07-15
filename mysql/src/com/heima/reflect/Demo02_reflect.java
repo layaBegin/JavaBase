@@ -20,17 +20,8 @@ public class Demo02_reflect {
 
          */
 
-        Class<?> aClass = Class.forName("com.heima.reflect.Demo02_reflect");
-        ClassLoader classLoader = aClass.getClassLoader();
-        Properties properties = new Properties();
-        InputStream resourceAsStream = classLoader.getResourceAsStream("connection.properties");
-        properties.load(resourceAsStream);
-        String con = properties.getProperty("con");
-        System.out.println(con);
-
-        Class<?> aClass1 = Class.forName(con);
-        LzConnection c = (LzConnection)aClass1.newInstance();
-        c.connection();
+        LzConnection con = ConnectFactory.getCon();
+        con.connection();
 
 
     }
