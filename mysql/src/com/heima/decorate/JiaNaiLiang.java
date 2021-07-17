@@ -10,4 +10,9 @@ public class JiaNaiLiang implements Actor{
     public void play(int money) {
         System.out.println("你真是个演员");
     }
+
+    @Override
+    public void method1() {
+
+    }
 }

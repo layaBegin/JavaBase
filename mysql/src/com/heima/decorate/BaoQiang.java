@@ -11,4 +11,9 @@ public class BaoQiang implements Actor{
         System.out.println("宝强演戏："+money);
 
     }
+
+    @Override
+    public void method1() {
+
+    }
 }

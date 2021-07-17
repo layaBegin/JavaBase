@@ -32,4 +32,9 @@ public class MyProxy implements Actor{
             System.out.println("钱太少了，不演");
         }
     }
+
+    @Override
+    public void method1() {
+
+    }
 }
