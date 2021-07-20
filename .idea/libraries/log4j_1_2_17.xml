@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="log4j-1.2.17">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mysql_mybatis/lib/log4j-1.2.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mysql_mybatis/lib/mybatis-3.5.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mysql_mybatis/lib/mysql-connector-java-5.1.37-bin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

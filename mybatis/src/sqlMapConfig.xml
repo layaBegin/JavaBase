@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--
+    1,jdbc.properties 放在类路径下
+    2，解析
+    开闭标签没有内容可以写成单标签
+    -->
+    <properties resource="jdbc.properties"/>
+    <!--
+    1，子标签typeAlias 给UserMapper.xml 的resultType 取别名
+    2，子标签package
+        name javabean 所在包
+    alias 别名 大小写不敏感
+    -->
+    <typeAliases>
+        <!--typeAlias type="com.heima.entity.User" alias="user"/ -->
+        <package name="com.heima.entity"/>
+    </typeAliases>
+    <!--这个标签的 default 是下面的子标签的哪个对应，就使用的是哪个标签的配置 -->
+    <environments default="xx">  <!--default 对应下面第一个，dev 对应下面第二个 -->
+        <!--环境变量-->
+        <environment id="xx">
+            <!--事务管理器：由JDBC管理事务 -->
+            <transactionManager type="JDBC"/>
+            <!--数据源配置信息：POOLED 使用连接池 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${j.driver}"/>
+                <property name="url" value="${j.url}"/>
+                <property name="username" value="${j.user}"/>
+                <property name="password" value="${j.password}"/>
+            </dataSource>
+        </environment>
+        <environment id="dev">   <!-- dev ：开发环境，uat：测试环境， prd 生产环境 -->
+            <!--type 事务管理器：由JDBC管理事务 后面会学 MANAGED -->
+            <transactionManager type="JDBC"/>
+            <!--数据源配置信息：POOLED 使用连接池
+                1)POOLED :使用 mybatis 创建的连接池
+                ··UNPOOLED ：不适用连接池
+                ··JNDI
+
+
+            -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/day07"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 加载其他的映射文件 -->
+    <mappers>
+<!--        <mapper resource="com/heima/dao/UserMapper.xml"/>-->
+<!-- 用 package 最好 -->
+        <package name="com.heima.dao"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+实体类的映射文件
+namespace 指定接口的类全名
+-->
+<mapper namespace="com.heima1.dao.UserMapper">
+    <!--
+    查询语句
+    id: 接口中方法的名字
+    resultType：返回的实体类的类型，类全名
+    -->
+<!--
+解决javaBean 字段和数据库字段不一致
+1）取别名 ，自动映射
+-->
+ <!--   <select id="findAllUsers" resultType="User">
+        select id,uname as username,birthday,sex,address from user
+    </select>-->
+<!--2）resultMap 结果集映射，手动映射
+    a）id 属性，唯一标识
+    b）type属性 user字段
+    c）id标签，指定的是主键的映射关系，一定要写
+    d）result 标签，指定的是非主键的映射关系
+        Column 结果集字段名
+        property javabean 中的属性名
+ -->
+    <resultMap id="hehe" type="user">
+        <id column="id" property="id"/>
+        <result column="uname" property="username"/>
+    </resultMap>
+    <select id="findAllUsers" resultMap="hehe">
+        select id,uname,birthday,sex,address from user
+    </select>
+    <!--<insert id="addUser">
+        insert into user values(null,#{username},#{birthday},#{sex},#{address})
+    </insert>-->
+    <insert id="addUser2">
+        insert into user values(null,#{username},#{birthday},#{sex},#{address})
+    </insert>
+    <insert id="addUser3">
+        insert into user values(null,#{user.username},#{user.birthday},#{user.sex},#{user.address})
+    </insert>
+    <update id="updateUser">
+        update user set username = #{username},birthday = #{birthday},sex = #{sex},address = #{address}
+        where id = #{id}
+    </update>
+    <delete id="deleteUser">
+        delete  from user where id = #{id}
+    </delete>
+    <!--<select id="findUserByKid" resultMap="hehe">
+        select * from user where uname like #{kd}
+    </select>-->
+    <select id="findUserByKid" resultMap="hehe">
+        select * from user where uname like CONCAT('%',#{kd},'%')
+    </select>
+    <!-- 主键回调
+    方案一
+    1，主键必须自增
+    2，useGeneratedKeys="true" 让自增长的主键开启返回功能
+    3，keyColumn="id" user表属性  keyProperty="id" JavaBean 属性
+    注意 ：只有 Mysql ，sqlServer 支持主键自增，oracle 不支持主键自增必须用方案二
+    方案二
+
+    -->
+    <!--<insert id="insertReturnId" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into user values (null,#{username},#{birthday},#{sex},#{address})
+    </insert>-->
+    <insert id="insertReturnId">
+        <selectKey keyColumn="id" keyProperty="id" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into user values(null,#{username},#{birthday},#{sex},#{address})
+    </insert>
+
+    <!--动态sql
+    -->
+    <select id="dynamicSql" resultMap="hehe">
+        select * from user
+        <where> <!-- where 标签 可以动态修正语法 -->
+            <if test = "name != null and name != ''">
+                uname = #{name}
+            </if>
+            <if test = "sex != null and sex != ''">
+                and sex = #{sex}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateDynamicSql">
+        UPDATE USER
+        <set>
+            <if test = "username != null and username != ''">
+                uname = #{username},
+            </if>
+            <if test = "birthday != null and birthday != ''">
+                birthday = #{birthday},
+            </if>
+            <if test = "sex != null and sex != ''">
+                sex = #{sex},
+            </if>
+            <if test = "address != null and address != ''">
+                address = #{address}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="findByIdsSql" resultMap="hehe">
+        <!-- 提取sql 复用 ref reference 引用-->
+        <include refid="yy"/>
+        <where>
+            <if test = "ids != null and ids.size != 0" >
+                id in
+                <foreach collection="ids" item="id" open="(" close=")" separator=",">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
+<!-- 复用的sql 可以 写成这样，再统一调用 -->
+    <sql id="yy">
+        select * from user
+    </sql>
+</mapper>
