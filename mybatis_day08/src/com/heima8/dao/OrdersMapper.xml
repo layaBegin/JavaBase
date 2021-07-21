@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+实体类的映射文件
+namespace 指定接口的类全名
+-->
+<mapper namespace="com.heima8.dao.OrdersMapper">
+    <!--
+            结果集映射:
+                1. id标签 : 写主键映射(必须要写)
+                2. result标签: 写非主键字段的映射(如果相同可不写)
+
+            mybatis中
+                1. association 标签 : 一对一 (一条记录映射一个javabean对象中)
+                2. collection 标签 : 一对多 (多条记录映射一个javabean集合中)
+
+                现在一个订单属于一个用户 : association
+                1. property : javaBean中的属性名
+                2. javaType : 此属性的类型
+
+                坑: 如果结果集中有多个同名字段,默认使用最左边的那个
+                坑2: 多表查询的手动映射,必须要写一个属性 autoMapping="true"
+        -->
+    <resultMap id="myorders" type="orders" autoMapping="true">
+        <id column="id" property="id"/>
+        <result column="uid" property="uid"/>
+        <result column="ordertime" property="ordertime"/>
+        <result column="money" property="money"/>
+        <association property="juser" javaType="user" autoMapping="true">
+            <id property="id" column="uid" />
+            <result property="username" column="username"/>
+
+        </association>
+    </resultMap>
+
+    <resultMap id="myuser" type="User" autoMapping="true">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <collection property="list" ofType="orders" autoMapping="true">
+            <id property="id" column="oid"/>
+
+        </collection>
+    </resultMap>
+    <resultMap id="myrole" type="role" autoMapping="true">
+        <id property="id" column="id"/>
+        <collection property="list" ofType="user" autoMapping="true">
+            <id property="id" column="uid"/>
+        </collection>
+    </resultMap>
+    <select id="findOrdersByIdWithUser" resultMap="myorders">
+        SELECT * FROM orders o INNER JOIN USER u ON o.uid = u.id
+        WHERE o.id = #{id}
+    </select>
+
+    <select id="findOrders"  resultMap="myorders">
+        SELECT * FROM orders
+    </select>
+    <select id="findUserByIdWithOrders"  resultMap="myuser">
+        SELECT *,o.id as oid FROM USER u INNER JOIN orders o ON u.id = o.uid
+        WHERE u.id = #{id};
+    </select>
+    <select id="findRoleByNameWithUser"  resultMap="myrole">
+        SELECT * FROM role r INNER JOIN USER u INNER JOIN user_role ur
+        ON r.id = ur.rid AND u.id = ur.uid
+        WHERE r.role_name IN (#{rname1},#{rname2});
+    </select>
+    <select id="findOrderById" resultType="orders">
+        select * from orders where id = #{id}
+    </select>
+    <select id="findOrderByUid" resultType="orders">
+        select * from orders where uid = #{id}
+    </select>
+    <select id="findUserByUid" resultType="user">
+        select * from user where id = #{uid}
+    </select>
+
+    <resultMap id="myorders2" type="orders" autoMapping="true">
+        <id column="id" property="id"/>
+        <association property="juser" javaType="user" autoMapping="true"
+                     column="uid" select="com.heima8.dao.OrdersMapper.findUserByUid"
+                     fetchType="eager">
+            <!-- fetchType="eager" 立即加载，lazy 延迟加载-->
+            <id property="id" column="uid" />
+
+        </association>
+    </resultMap>
+    <select id="findOrdersByIdWithUser2" resultMap="myorders2">
+        SELECT * FROM orders o
+            WHERE o.id = #{id}
+    </select>
+
+    <resultMap id="myuser2" type="User" autoMapping="true">
+        <id column="id" property="id"/>
+        <collection property="list" ofType="orders" autoMapping="true"
+                    column="id" select="com.heima8.dao.OrdersMapper.findOrderByUid">
+            <id property="id" column="id"/>
+            <!--property 为orders JavaBean对应的属性 column为 orders 的主键id  -->
+        </collection>
+    </resultMap>
+    <select id="findUserByIdWithOrders2"  resultMap="myuser2">
+        SELECT * FROM USER u
+        WHERE u.id = #{id};
+    </select>
+</mapper>

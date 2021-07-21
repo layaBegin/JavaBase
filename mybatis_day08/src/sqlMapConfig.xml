@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--
+    1,jdbc.properties 放在类路径下
+    2，解析
+    开闭标签没有内容可以写成单标签
+    -->
+    <properties resource="jdbc.properties"/>
+    <settings>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--触发立即加载的配置
+           默认值：equals,clone,hashCode,toString
+           value="" 覆盖了默认值，表示在执行上述四个方法时，不会触发立即加载...
+           只有在执行orders.get方法获取时，触发数据加载...
+       -->
+        <setting name="lazyLoadTriggerMethods" value=""/>
+    </settings>
+    <!--
+    1，子标签typeAlias 给UserMapper.xml 的resultType 取别名
+    2，子标签package
+        name javabean 所在包
+    alias 别名 大小写不敏感
+    -->
+    <typeAliases>
+        <!--typeAlias type="com.heima.entity.User" alias="user"/ -->
+        <package name="com.heima8.pojo"/>
+    </typeAliases>
+    <!--这个标签的 default 是下面的子标签的哪个对应，就使用的是哪个标签的配置 -->
+    <environments default="xx">  <!--default 对应下面第一个，dev 对应下面第二个 -->
+        <!--环境变量-->
+        <environment id="xx">
+            <!--事务管理器：由JDBC管理事务 -->
+            <transactionManager type="JDBC"/>
+            <!--数据源配置信息：POOLED 使用连接池 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${j.driver}"/>
+                <property name="url" value="${j.url}"/>
+                <property name="username" value="${j.user}"/>
+                <property name="password" value="${j.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 加载其他的映射文件 -->
+    <mappers>
+        <!--        <mapper resource="com/heima/dao/UserMapper.xml"/>-->
+        <!-- 用 package 最好 -->
+        <package name="com.heima8.dao"/>
+    </mappers>
+</configuration>
