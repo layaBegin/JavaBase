@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生信息表</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 500px;
+        }
+        td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table border="1">
+    <tr bgcolor="#90ee90">
+        <th>
+            <input type="checkbox" id="itemTop" name="item" onclick="allSelect()">
+        </th>
+        <th>
+            学号
+        </th>
+        <th>
+            姓名
+        </th>
+        <th>
+            操作
+        </th>
+    </tr>
+    <tbody id="studentbody">
+        <tr>
+            <td>
+                <input type="checkbox" name="item">
+            </td>
+            <td>0001</td>
+            <td>白骨金</td>
+            <td>
+                <input type="button" value="删除" onclick="deleteRow(this)">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="item">
+            </td>
+            <td>0002</td>
+            <td>孙悟空</td>
+            <td>
+                <input type="button" value="删除" onclick="deleteRow(this)">
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br/>
+学号：
+<input type="text" id="stuNo">
+<input type="text" id="stuName">
+<input type="button" value="添加" onclick="addRow()">
+</body>
+</html>
+<script>
+    function addRow() {
+        let tbody = document.getElementById("studentbody");
+        let tr = document.createElement("tr");
+        let stuNo = document.getElementById("stuNo");
+        let stuName = document.getElementById("stuName");
+
+        tr.innerHTML = `<tr>
+            <td>
+                <input type="checkbox" name="item">
+            </td>
+            <td>${stuNo.value}</td>
+            <td>${stuName.value}</td>
+            <td>
+                <input type="button" value="删除" onclick="deleteRow(this)">
+            </td>
+        </tr>`
+        tbody.appendChild(tr);
+        stuNo.value = "";
+        stuName.value = ""
+
+    }
+    function deleteRow(btn) {
+        let name = btn.parentElement.previousElementSibling.innerText;
+        if (confirm(`真的要刪除${name}這行嗎`)){
+            btn.parentElement.parentElement.remove();
+        }
+    }
+    function allSelect() {
+        let items = document.getElementsByName("item");
+        let check = document.getElementById("itemTop").checked
+
+        for (item of items){
+            item.checked = check;
+        }
+    }
+</script>

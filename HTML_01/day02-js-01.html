@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js出现的位置 的3种方式</title>
+   <!-- <script>
+// 要么这里写代码，要么 src引入js文件，不能都做
+        alert("我是寂寞的男生")
+    </script>
+    <script src="js/test.js">
+    &lt;!&ndash;必须两个标签块&ndash;&gt;
+    </script>-->
+</head>
+<body>
+<button id="btn">点我</button>
+<script type="text/javascript">
+    document.getElementById("btn").onclick = function(){
+        alert("点击触发")
+    }
+   /* for (let i = 0; i < 5; i++) {
+        document.write("<h1>hello world</h1>")
+    }*/
+    /*var num = 7;
+    document.write(num+"<br>")
+   {
+       var num = 9
+   }
+   document.write(num+"<br>")
+
+   let str = "牛魔王"
+   document.write(str)
+    const PI = 3.14;//常量值不能更改*/
+    //js 两个整数相除可以为小数，除不尽保留16位小数
+    /*document.write(1/3 + "<br>")
+    let o = {
+
+    }
+    if (Object.getOwnPropertyNames(o).length <=0){
+        alert("o为空")
+    }else {
+        alert("o不为空")
+    }*/
+
+    /*let score = prompt("请输入分数","0")
+    document.write(score +"<br>")
+    document.write(typeof score)*/
+    let arr = [1,3,4,9];
+   for (let i = 0; i < arr.length; i++) {
+       const arrayElement = arr[i];
+       
+   }
+   for (let name of arr) {
+       document.write(name +"<br>")
+   }
+
+</script>
+</body>
+</html>

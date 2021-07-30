@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式建立表单</title>
+</head>
+<body>
+<form action="server" method="get" onsubmit="checkAll()">
+    <table>
+        <tr>
+            <td>用户名：</td>
+            <td>
+                <input type="text" id="user" placeholder="请输入用户名" onblur="oncheckedUser()">
+
+            </td>
+            <td>
+                <img id="gou"  width="20">
+            </td>
+            <td>
+                <span id="geshi" style="color: red">
+
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>用户名：</td>
+            <td>
+                <input type="text" placeholder="请输入密码">
+            </td>
+        </tr>
+        <tr>
+            <td>用户名：</td>
+            <td>
+                <input type="text" placeholder="请确认密码">
+            </td>
+        </tr>
+        <tr>
+            <td>手机号码：</td>
+            <td>
+                <input type="text" id="phone" placeholder="请输入手机号码">
+            </td>
+        </tr>
+    </table>
+</form>
+<script>
+    function oncheckedUser(){
+        let user = document.getElementById("user");
+        let re = /^1[35678]\d{9}$/
+        let geshi = document.getElementById("geshi");
+        if (re.test(user.value)){
+            geshi.innerText = ""
+            let td = document.createElement("td");
+            td.innerHTML = `<td><img src="img/gou.png" width="20"></td>`
+            user.parentElement.parentElement.appendChild(td);
+
+            return true
+        }else {
+            geshi.innerText = "用户名格式不对"
+            return false
+        }
+    }
+</script>
+</body>
+</html>

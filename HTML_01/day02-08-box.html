@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内边距，外边距</title>
+    <style>
+        #one{
+            /*默认就是content-box 自适应盒子*/
+            box-sizing: content-box;
+            width: 200px;
+            height: 200px;
+            /*简写：粗细 线型 颜色*/
+            border: 10px dotted blue;
+            /*padding 内边距 上下左右一样*/
+            padding: 10px 20px 30px 40px;
+            /*外边距*/
+            margin: auto;
+        }
+        #two{
+            /*border-box 怪异盒子，限制尺寸*/
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+            /*简写：粗细 线型 颜色*/
+            border: 10px dashed goldenrod;
+            /*padding 内边距 上下左右一样*/
+            padding: 10px 20px 30px 40px;
+            /*外边距*/
+            margin: auto;
+        }
+        #three{
+            /*border-box 怪异盒子，限制尺寸*/
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+            /*简写：粗细 线型 颜色*/
+            border-style: double;
+            border-color: #0066FF;
+            border-width: 10px;
+            border-radius: 20px;
+            /*padding 内边距 上下左右一样*/
+            padding: 10px 20px 30px 40px;
+            /*外边距*/
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="one">
+都是符合人体以后我让他wretched他和他TRH KJET SDFGSDF 是法国大噶add官方啊
+</div>
+<div id="two">
+都是符合人体以后我让他wretched他和他TRH KJET SDFGSDF 是法国大噶add官方啊
+
+</div>
+<div id="three">
+    都是符合人体以后我让他wretched他和他TRH KJET SDFGSDF 是法国大噶add官方啊
+
+</div>
+</body>
+</html>

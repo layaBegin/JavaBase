@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location</title>
+    <style>
+        #clock{
+            font-size: 30px;
+            border:double;
+            border-radius: 3px;
+            border-color: #0066FF;
+            border-width: 5px;
+            color: red;
+            background-color: lightgreen;
+            text-align: center;
+            background-size: 300px;
+            line-height:50px ;
+            width: 400px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="start" value="开始">
+<input type="button" id="pause" value="暂停" disabled="disabled">
+<h1 id="clock"></h1>
+
+<script>
+    window.onload = function(){
+        document.getElementById("clock").innerText = new Date().toLocaleString();
+
+    }
+    let timer;
+    document.getElementById("start").onclick = function(){
+        document.getElementById("pause").disabled = false;
+        this.disabled = true;
+        timer = setInterval(function () {
+            document.getElementById("clock").innerText = new Date().toLocaleString();
+
+        },1000)
+    }
+    document.getElementById("pause").onclick = function(){
+        document.getElementById("start").disabled = false;
+        this.disabled = true;
+        clearInterval(timer)
+    }
+</script>
+</body>
+</html>

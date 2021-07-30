@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+</head>
+<body>
+<h2>用户注册</h2>
+<hr/>
+<!--输入任何一个标签 ctrl + j
+input 标签的属性：
+    text 默认文本
+    password 密码
+    email 邮箱
+    radio 单选框，名字相同是一组
+    checkbox 多选框
+    date
+    file
+    submit
+    reset
+
+select
+-->
+<form action="server" method="get">
+    <table>
+        <tr>
+            <td>用户名：</td>
+            <td>
+                <input type="text" name="user" placeholder="请输入用户名">
+            </td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td>
+                <input type="password" name="password" placeholder="请输入密码">
+            </td>
+        </tr>
+        <tr>
+            <td>邮箱：</td>
+            <td>
+                <input type="email" name="email" placeholder="请输入邮箱">
+            </td>
+        </tr>
+        <tr>
+            <td>性别：</td>
+            <td>
+            <!--
+            tpye = radio 单选
+            名字相同是一组，id不能重复
+            label 为表单项服务的，与id一起使用，点文字也可以中
+            checked 表示默认选中
+            value 必须指定值，否则默认都是on
+            -->
+                <input type="radio" name="sex" id="man" value="男" checked="checked"><label for="man">男</label>
+                <input type="radio" name="sex" id="women" value="女"><label for="women">女</label>
+            </td>
+        </tr>
+        <tr>
+            <td>爱好：</td>
+            <td>
+                <input type="checkbox" name="hobby" value="上网">上网
+                <input type="checkbox" name="hobby" value="上课" checked="checked" id="shangke"><label for="shangke">上课</label>
+                <input type="checkbox" name="hobby" value="羽毛球">羽毛球
+            </td>
+        </tr>
+        <tr>
+            <td>学历：</td>
+            <td>
+                <!--multiple="multiple" 可多选-->
+                <select name="edu">
+                    <option value="1">大专</option>
+                    <option value="2" selected="selected">本科</option>
+                    <option value="3">硕士</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>生日：</td>
+            <td>
+                <input type="date" name="birthday">
+            </td>
+        </tr>
+        <tr>
+            <td>照片：</td>
+            <td>
+<!--                accept 用来指定文件的类型，image 图片。text 文本-->
+                <input type="file" name="photo" accept="image/jpeg">
+            </td>
+        </tr>
+        <tr>
+            <td>个人简介：</td>
+            <td>
+                <textarea name="introduce" rows="5" cols="20"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="注册">
+                <input type="reset" value="重置" disabled="disabled">
+                <input type="button" value="按钮">
+                <!--button type  submit reset reset   默认是提交按钮-->
+                <button>我是按钮</button>
+                <input type="image" src="image/zhaomin.jpg" width="70">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

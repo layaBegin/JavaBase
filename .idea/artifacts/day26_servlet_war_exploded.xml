@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="day26-servlet:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/day26_servlet_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="day26-servlet" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="day26-servlet/web/Web" />
+    </root>
+  </artifact>
+</component>

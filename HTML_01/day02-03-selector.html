@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器</title>
+    <style>
+    /*    !*标签选择器*!*/
+    /*    p{*/
+    /*        color: gold;*/
+    /*    }*/
+    /*    !*<!--* 通用选择器-->*!*/
+    /*    *{*/
+    /*        color: red;*/
+    /*    }*/
+    /*!*  class  类选择器*!*/
+    /*    .one{*/
+    /*        color: blue;*/
+    /*    }*/
+    /*!*    id选择器 # + id 来选择*!*/
+    /*    #two{*/
+    /*        color: aqua;*/
+    /*    }*/
+    /*!* ---------- 属性选择器 ---------------*!
+    !*    title*!
+        span[title=a][id="1"]{
+            color: rebeccapurple;
+        }*/
+    /*!* -----------------------层级选择器，选择子孙元素 -------------------*!
+        div span{
+            color: red;
+        }
+*/
+   /* !*    并集选择器 用，分割*!
+        .one,span,#two{
+            color: firebrick;
+        }*/
+    /*!*    交集选择器 标签.class 或者标签#id 只有这两种情况*!
+        span.one{
+            color: red;
+        }
+        div#two{
+            color: rebeccapurple;
+        }*/
+    /*    伪类选择器 同一个元素在不同的状态下呈现不同的效果*/
+        a:link{
+            text-decoration: none;
+        }
+        /*悬浮状态，有顺序*/
+        a:hover{
+            color: rebeccapurple;
+            text-decoration: underline;
+        }
+        /*点击之后*/
+        a:visited{
+            color: gray;
+        }
+        /*点击的时候*/
+        a:active{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+<p  class="one" id="two" title="a">class为one</p>
+<p>html上述撒打发</p>
+<p>html上述撒打发</p>
+<div title="a">块状代码块</div>
+<div id="two" title="b">id为two</div>
+<div>块状代码块</div>
+<span class="one">局部代码块，不能换行</span>
+<span id="1" title="a">局部代码块，不能换行</span>
+<span id="two" title="a">局部代码块，不能换行</span>
+<div>
+    <span>
+        好好学习，天天向上
+    </span>
+</div>
+<hr/>
+<a href="#1">点我试试</a>
+<a href="#2">点我试试</a>
+<a href="#3">点我试试</a>
+</body>
+</html>

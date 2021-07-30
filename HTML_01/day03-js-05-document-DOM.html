@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btn" value="通过标签名获取">
+<table width="500" border="1" align="center">
+    <tr>
+        <td>100</td>
+        <td>100</td>
+        <td>100</td>
+        <td>100</td>
+    </tr>
+    <tr>
+        <td>100</td>
+        <td>100</td>
+        <td>100</td>
+        <td>100</td>
+    </tr>
+    <tr>
+        <td>100</td>
+        <td>100</td>
+        <td>100</td>
+        <td>100</td>
+    </tr>
+    <tr>
+        <td>100</td>
+        <td>100</td>
+        <td>100</td>
+        <td>100</td>
+    </tr>
+</table>
+<br>
+<input id="b2" type="button" value="通过name选中所有商品"><br/>
+<input type="checkbox" id="cb1" name="product">自行车
+<input type="checkbox" id="cb2" name="product">飞机
+<input type="checkbox" id="cb3" name="product">火车
+<input type="checkbox" id="cb4" name="product">汽车
+<hr/>
+<input id="b3" type="button" value="通过className添加链接"><br/>
+<a class="chuanzhi">传智播客</a>
+<a class="chuanzhi">传智播客</a>
+<a class="chuanzhi">传智播客</a>
+<a class="chuanzhi">传智播客</a>
+</body>
+</html>
+<script>
+    //document.getElementById("btn").
+    document.querySelector("#btn").onclick = function(){
+        let trs = document.querySelectorAll("tr")
+            //document.getElementsByTagName("tr");
+        for (let i = 0; i < trs.length; i++) {
+            if (i%2 == 0){
+                trs[i].style.backgroundColor  = "green"
+            }else {
+                trs[i].style.backgroundColor  = "gold"
+
+            }
+        }
+    }
+    let products = document.getElementsByName("product");
+    for(product of products){
+        product.checked = true;
+    }
+
+    let classNames = document.getElementsByClassName("chuanzhi");
+    for(className of classNames){
+        className.href = "https://www.baidu.com"
+    }
+
+</script>

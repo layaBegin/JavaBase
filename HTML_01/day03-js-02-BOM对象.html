@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location</title>
+
+</head>
+<body style="text-align: center">
+<input type="button" value="后退" onclick="history.back()">
+<img src="image/zhaomin.jpg" width="100"><br>
+注册成功！<span id="tz" style="color: red;font-size: 20px">5</span>秒后跳转...
+<script type="text/javascript">
+    /*let href = location.href;
+    document.write(href+"<br>")
+    //location.href = "http://www.baidu.com"*/
+    let num = 5;
+    setInterval(function () {
+        document.getElementById("tz").innerText = --num;
+        if (num == 0){
+            location.href = "https://www.baidu.com"
+        }
+    },1000)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>验证注册页面</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            line-height: 20px;
+        }
+
+        .main {
+            width: 525px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hr_1 {
+            font-size: 14px;
+            font-weight: bold;
+            color: #3275c3;
+            height: 35px;
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+            border-bottom-color: #3275c3;
+            vertical-align: bottom;
+            padding-left: 12px;
+        }
+
+        .left {
+            text-align: right;
+            width: 80px;
+            height: 25px;
+            padding-right: 5px;
+        }
+
+        .center {
+            width: 280px;
+        }
+
+        .in {
+            width: 130px;
+            height: 16px;
+            border: solid 1px #79abea;
+        }
+
+        .red {
+            color: #cc0000;
+            font-weight: bold;
+        }
+
+        div {
+            color: #F00;
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+
+    <script type="text/javascript">
+        /**
+         * 判断用户名是否正确
+           用户名：只能由英文字母和数字组成，长度为4～16个字符，并且以英文字母开头
+         */
+        function checkUser() {
+            //1. 编写正则表达式
+            let reg = /^[a-zA-Z][a-zA-Z0-9]{3,15}$/;
+            //2.获取文本框中值
+            let value = document.getElementById("user").value;
+            //3.判断通过返回true
+            if (reg.test(value)) {
+                //显示图片在span中
+                document.getElementById("userInfo").innerHTML = "<img src='img/gou.png' width='16'/>";
+                return true;
+            }
+            else {
+                document.getElementById("userInfo").innerText = "用户名格式错误";
+                return false;
+            }
+        }
+
+        /**
+         * 判断手机号
+         */
+        function checkMobile() {
+            //1. 编写正则表达式
+            let reg = /^1[3456789]\d{9}$/;
+            //2.获取文本框中值
+            let value = document.getElementById("mobile").value;
+            //3.判断
+            if (reg.test(value)) {
+                //显示图片在span中
+                document.getElementById("mobileInfo").innerHTML = "<img src='img/gou.png' width='16'/>";
+                return true;
+            }
+            else {
+                document.getElementById("mobileInfo").innerText = "手机号格式错误";
+                return false;
+            }
+        }
+
+        /**
+         * 验证表单中所有的项
+         */
+        function checkAll() {
+            //必须全部为真才会提交
+            return checkUser() && checkMobile();
+        }
+    </script>
+</head>
+
+<body>
+<!-- 表单提交会激活onsubmit事件，如果这个事件的代码返回false，则可以阻止表单的提交 -->
+<form action="server" method="get" id="myform" onsubmit="return checkAll()">
+    <table class="main" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td><img src="img/logo.jpg" alt="logo"/><img src="img/banner.jpg" alt="banner"/></td>
+        </tr>
+        <tr>
+            <td class="hr_1">新用户注册</td>
+        </tr>
+        <tr>
+            <td style="height:10px;"></td>
+        </tr>
+        <tr>
+            <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td class="left">用户名：</td>
+                        <td class="center">
+                            <input id="user" name="user" type="text" class="in" onblur="checkUser()"/>
+                            <span id="userInfo"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- 不能为空， 输入长度大于6个字符 -->
+                        <td class="left">密码：</td>
+                        <td class="center">
+                            <input id="pwd" name="pwd" type="password" class="in"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- 不能为空， 与密码相同 -->
+                        <td class="left">确认密码：</td>
+                        <td class="center">
+                            <input id="repwd" name="repwd" type="password" class="in"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- 不能为空， 邮箱格式要正确 -->
+                        <td class="left">电子邮箱：</td>
+                        <td class="center">
+                            <input id="email" name="email" type="text" class="in"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- 不能为空， 使用正则表达式自定义校验规则,1开头，11位全是数字 -->
+                        <td class="left">手机号码：</td>
+                        <td class="center">
+                            <input id="mobile" name="mobile" type="text" class="in" onblur="checkMobile()"/>
+                            <span id="mobileInfo"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- 不能为空， 要正确的日期格式 -->
+                        <td class="left">生日：</td>
+                        <td class="center">
+                            <input id="birth" name="birth" type="text" class="in"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="left">&nbsp;</td>
+                        <td class="center">
+                            <!-- image也是提交按钮 -->
+                            <input type="image" src="img/register.jpg"/>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

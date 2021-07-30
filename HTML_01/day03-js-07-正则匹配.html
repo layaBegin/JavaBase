@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则匹配</title>
+</head>
+<body>
+<script type="text/javascript">
+    //"^\\d{3}$"
+    // \\ 引号内\d 要加转义符\,
+    // ^表示以^后面的字符开头，
+    // $表示以$前面的字符结尾，
+    // {3}表示匹配3个字符，
+    // 方式1，现在表示精确匹配
+    let regExp = new RegExp("^\\d{3}$");
+    //方式2.
+    let re = /^\d{3}$/
+
+    let str = "304";
+    let b = re.test(str);
+    document.write(b+"<br/>")
+</script>
+</body>
+</html>

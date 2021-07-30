@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css样式的3种位置</title>
+    <!--    第二种，内部样式，一般放head里，对整个文件起作用-->
+    <style>
+        p{
+            font-size: 40px;
+            color: gold;
+        }
+    </style>
+<!--第三种 外部样式，引入外部的css文件，这个样式可以在多个网页种重用
+    后面的样式会覆盖前面的样式，交换位置效果不同-->
+    <link rel="stylesheet" href="css/testCss.css">
+</head>
+<body>
+<!--行内样式：只对这个标签起作用-->
+<p style="color: red">
+    这是一段文字
+</p>
+<p >
+    这是一段文字
+</p>
+<p >
+    这是一段文字
+</p>
+<span>这是一个内联元素</span>
+<span>这是一个内联元素</span>
+</table>
+
+</body>
+</html>

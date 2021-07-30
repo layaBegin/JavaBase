@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <!--<style>
+        input{
+            margin: 5px;
+        }
+    </style>-->
+<!--    <script>-->
+<!--        window.onload= function () {-->
+<!--            alert(document.getElementById("user").value)-->
+<!--        }-->
+<!--    </script>-->
+
+    <style>
+        .day{
+            color: blue;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<!--用户名：<input id="user" value="孙悟空">-->
+<!--姓名：<input type="text" id="t1" value="zhangshan"><br>
+姓名：<input type="text" id="t2"><br>
+<input type="button" id="btn" value="单击复制/双击清除"><br>
+<script>
+    document.getElementById("btn").onclick = function () {
+        document.getElementById("t2").value = document.getElementById("t1").value.trim();
+    }
+    document.getElementById("btn").ondblclick = function () {
+        document.getElementById("t2").value = ""
+        document.getElementById("t1").value = "";
+    }
+</script>-->
+<!--
+用户：<input type="text" id="user" placeholder="请输入用户名">
+<span id="info" style="color: red"></span>
+<script>
+    document.getElementById("user").onblur = function () {
+        if (this.value == ""){
+            document.getElementById("info").innerText = "用户名不能为空"
+        }else {
+            document.getElementById("info").innerText = ""
+
+        }
+    }
+</script>-->
+
+<!--------------------------------------->
+<!--城市：
+<select id="choose">
+    <option>北京</option>
+    <option>上海</option>
+    <option>广州</option>
+</select><br>
+
+您选中了：<span id="sp" style="color: red"></span>
+<hr/>
+英文：<input type="text" id="en" placeholder="请输入一段英文">
+<script>
+
+    document.getElementById("choose").onchange = function () {
+        document.getElementById("sp").innerText = this.value
+    };
+    document.getElementById("en").onchange = function () {
+        this.value = this.value.toUpperCase();
+    };
+</script>-->
+<input id="b1" type="button" value="改变1" >
+<input id="b2" type="button" value="改变2" >
+<p id="p1">
+    好好学习
+</p>
+<p id="p2">
+    天天向上
+</p>
+<script>
+    //---------代码控制样式------------------------
+    document.getElementById("b1").onclick = function () {
+        let style = document.getElementById("p1").style;
+        style.color = "red"
+        style.fontFamily = "楷体"
+        style.textDecoration = "blink"
+    }
+    document.getElementById("b2").onclick = function () {
+       document.getElementById("p2").className = "day";
+
+    }
+
+    // ---------------------------
+   /* let a = [1,3,4]
+    let b = [6,7]
+    let numbers = a.concat(b,90);
+    for (num of numbers){
+        document.write(num + "<br>")
+    }
+    document.write(numbers.reverse()+"<br>")
+    //document.write(numbers.join("&"))
+    numbers.push(33,"p")
+    document.write(numbers)*/
+    /*let arr = ["Tom","marry","lily","Jack","12","ok"]
+    document.write(arr+"<br>")
+    arr.sort()
+    document.write(arr+"<br>")
+
+    let arrNum = [300,500,4,54,87,9,2,7]
+    arrNum.sort()
+   document.write(arrNum+"<br>")
+    arrNum.sort((a,b) => {return a-b})
+   document.write(arrNum+"<br>")*/
+
+
+</script>
+</body>
+</html>
