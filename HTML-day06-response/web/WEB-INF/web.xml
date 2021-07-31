@@ -3,4 +3,31 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+<!--全局参数配置，所有的servlet都能访问-->
+    <context-param>
+        <param-name>name</param-name>
+        <param-value>黑猫警长</param-value>
+    </context-param>
+    <context-param>
+        <param-name>age</param-name>
+        <param-value>45</param-value>
+    </context-param>
+<!--    配置demo05-->
+    <servlet>
+        <servlet-name>demo05</servlet-name>
+        <servlet-class>com.heima.response.Demo05_ContextParamServlet</servlet-class>
+<!--        局部配置参数，只有当前servlet可以访问-->
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>白骨精</param-value>
+        </init-param>
+        <init-param>
+            <param-name>age</param-name>
+            <param-value>18</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>demo05</servlet-name>
+        <url-pattern>/demo05</url-pattern>
+    </servlet-mapping>
 </web-app>
