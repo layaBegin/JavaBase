@@ -6,9 +6,4 @@
     <welcome-file-list>
         <welcome-file>login.html</welcome-file>
     </welcome-file-list>
-<!--    配置会话过期时间-->
-    <session-config>
-<!--        单位是分钟-->
-        <session-timeout>6</session-timeout>
-    </session-config>
 </web-app>
