@@ -1,4 +1,4 @@
-<%@ taglib prefix="a" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="abc" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Lenovo
@@ -44,7 +44,7 @@
         first：如果是第一个元素，返回true，否则返回false
         last：如果是最后一个元素，返回true，否则返回false
     --%>
-    <a:forEach var="student" items="${studentList}" varStatus="row">
+    <abc:forEach var="student" items="${studentList}" varStatus="row">
         <tr>
             <td>${row.count}</td>
             <td>${student.id}</td>
@@ -52,7 +52,7 @@
             <td>${student.gender?"男":"女"}</td>
             <td>${student.score}</td>
         </tr>
-    </a:forEach>
+    </abc:forEach>
 </table>
 </body>
 </html>

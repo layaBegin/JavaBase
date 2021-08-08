@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/HTML-day010-execrise/HTML-day010-execrise.iml" filepath="$PROJECT_DIR$/HTML-day010-execrise/HTML-day010-execrise.iml" />
       <module fileurl="file://$PROJECT_DIR$/HTML-day04-servlet/HTML-day04-servlet.iml" filepath="$PROJECT_DIR$/HTML-day04-servlet/HTML-day04-servlet.iml" />
       <module fileurl="file://$PROJECT_DIR$/HTML-day05-login/HTML-day05-login.iml" filepath="$PROJECT_DIR$/HTML-day05-login/HTML-day05-login.iml" />
       <module fileurl="file://$PROJECT_DIR$/HTML-day05-request/HTML-day05-request.iml" filepath="$PROJECT_DIR$/HTML-day05-request/HTML-day05-request.iml" />
