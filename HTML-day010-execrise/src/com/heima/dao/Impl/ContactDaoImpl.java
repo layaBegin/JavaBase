@@ -69,4 +69,20 @@ public class ContactDaoImpl implements ContactDao {
             return 0;
         }
     }
+
+    @Override
+    public Integer getCount() {
+        SqlSession session = MyBatisUtils.getSession();
+        ContactDao mapper = session.getMapper(ContactDao.class);
+        Integer count = mapper.getCount();
+        return count;
+    }
+
+    @Override
+    public List<Contact> getOnePageContact(Integer begin, Integer count) {
+        SqlSession session = MyBatisUtils.getSession();
+        ContactDao mapper = session.getMapper(ContactDao.class);
+        List<Contact> onePageContact = mapper.getOnePageContact(begin, count);
+        return onePageContact;
+    }
 }

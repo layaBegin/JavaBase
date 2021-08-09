@@ -38,9 +38,9 @@
                 <th>邮箱</th>
                 <th>操作</th>
             </tr>
-            <abc:forEach items="${allContacts}" var="contcat">
+            <abc:forEach items="${pageBean.data}" var="contcat" varStatus="row">
                 <tr>
-                    <td>${contcat.id}</td>
+                    <td>${row.count + pageBean.currentPage * pageBean.size - pageBean.size}</td>
                     <td>${contcat.name}</td>
                     <td>${contcat.sex}</td>
                     <td>${contcat.age}</td>
@@ -59,8 +59,30 @@
     </form>
 </div>
 <div align="center">
-    <!--    页脚-->
-    <input type="button" value="首页" onclick="onClickFisrtPage()">
+    <form action="contact" method="post" id="contactForm">
+        <!--    页脚-->
+        <div class="row text-center">
+            <div class="btn-group btn-group-sm">
+                <a href="javascript: jumpPage('${pageBean.firstPage}','${pageBean.size}')" class="btn btn-default">首页</a>
+                <a href="javascript: jumpPage('${pageBean.previousPage}','${pageBean.size}')" class="btn btn-default">上页</a>
+                <a href="javascript: jumpPage('${pageBean.nextPage}','${pageBean.size}')" class="btn btn-default">下页</a>
+                <a href="javascript: jumpPage('${pageBean.totalPage}','${pageBean.size}')" class="btn btn-default">末页</a>
+            </div>
+
+            每页
+            <input type="number" class="form-control" name="size" style="width: 60px;" id="size" value="${pageBean.size}"/>
+            条
+
+            第
+            <select id="currentPage" class="form-control" name="currentPage">
+                <%--显示所有页数--%>
+                <abc:forEach var="num" begin="${pageBean.firstPage}" end="${pageBean.totalPage}">
+                    <%--如果当前页等于num，就选中--%>
+                    <option value="${num}" ${pageBean.currentPage==num?'selected="selected"':''}>${num}</option>
+                </abc:forEach>
+            </select>
+            页/共${pageBean.totalPage}页 共${pageBean.totalCount}条
+    </form>
 
 </div>
 <script type="text/javascript">
@@ -73,6 +95,18 @@
     function deleteContact(id,name) {
         if (confirm("真的要删除" + name + "吗？")) {
             location.href="delete?id="+ id;
+        }
+    }
+    function jumpPage(page,size) {
+        location.href = "contact?currentPage=" + page + "&size=" + size
+    }
+
+    window.onload = function () {
+        document.getElementById("size").onchange =  function () {
+            document.getElementById("contactForm").submit();
+        }
+        document.getElementById("currentPage").onchange =  function () {
+            document.getElementById("contactForm").submit();
         }
     }
 </script>

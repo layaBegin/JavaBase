@@ -1,10 +1,7 @@
 package com.heima.dao;
 
 import com.heima.entity.Contact;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -24,5 +21,11 @@ public interface ContactDao {
 
     @Delete("DELETE FROM contacts WHERE id = #{id}")
     Integer deleteContact(Integer id);
+
+    @Select("SELECT COUNT(*) FROM contacts")
+    Integer getCount();
+
+    @Select("SELECT * FROM contacts LIMIT #{begin},#{count}")
+    List<Contact> getOnePageContact(@Param("begin") Integer begin,@Param("count") Integer count);
 
 }

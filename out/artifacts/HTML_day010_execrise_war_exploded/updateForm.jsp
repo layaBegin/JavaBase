@@ -17,6 +17,8 @@
 <div class="container" style="max-width: 400px">
     <h2>修改联系人</h2>
     <form action="update" method="post" id="contactForm" >
+        <%--使用隐藏域将id传递到服务器端--%>
+        <input type="hidden" name="id" value="${contact.id}">
         <div class="form-group">
             <label for="name">姓名</label>
             <input type="text" name="name" id="name" class="form-control" value="${contact.name}"/>

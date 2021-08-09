@@ -13,6 +13,9 @@
   </head>
   <body>
 
-  <jsp:forward page="/contact"/>
+  <jsp:forward page="/contact">
+    <jsp:param name="currentPage" value="1"/>
+    <jsp:param name="size" value="5"/>
+  </jsp:forward>>
   </body>
 </html>
