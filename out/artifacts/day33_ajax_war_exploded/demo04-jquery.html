@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery</title>
+<!--    导入 jQuery 文件-->
+    <script src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+请输入用户名：<input type="text" id="name" name="name">
+<span id="desc" value="描述">描述</span>
+</body>
+<script type="text/javascript">
+    $("#name").blur(function () {
+        let data = "name=" + $(this).val();
+        /*//发送get请求给服务器 参数 url，data，callback，type
+        $.get("demo01",data,function (response) {
+            $("#desc").text(response)
+        })*/
+
+        /*//发送post请求给服务器 参数 url，data，callback，type
+        $.post("demo01",data,function (response) {
+            $("#desc").text(response)
+        })*/
+
+        //jQuery 3.0以后的方式
+        $.post({
+            url:"demo02",
+            data:"name="+ $(this).val(),
+            async:true,//异步为true，同步为false
+            success:function (response) {
+                $("#desc").text(response)
+                alert("执行服务器success")
+            },
+            error:function (request) {
+                alert("服务器异常，状态码："+ request.status)
+            }
+        });
+        alert("继续执行后面的代码")
+    })
+</script>
+</html>

@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$USER_HOME$/IdeaProjects/day34-01-web" />
+    <file type="web" url="file://$USER_HOME$/IdeaProjects/day34-02-web" />
+    <file type="web" url="file://$PROJECT_DIR$/day34-01-web" />
+    <file type="web" url="file://$PROJECT_DIR$/day34-02-web" />
+    <file type="web" url="file://$PROJECT_DIR$/day34-04-aera" />
+  </component>
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../doc" />
+    <option name="OTHER_OPTIONS" value="-encoding UTF-8 -charset UTF-8" />
+    <option name="LOCALE" value="zh_CN" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/day34-01-web/pom.xml" />
+        <option value="$PROJECT_DIR$/day34-02-web/pom.xml" />
+        <option value="$PROJECT_DIR$/day34-03-myutils/pom.xml" />
+        <option value="$PROJECT_DIR$/day34-04-aera/pom.xml" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="day34-04-aera:war">
+    <output-path>$PROJECT_DIR$/day34-04-aera/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>day34-04-aera</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="day34-04-aera-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="day34-04-aera:war exploded" />
+    </root>
+  </artifact>
+</component>

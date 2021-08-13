@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="day34-02-web" />
+        <module name="day34-03-myutils" />
+        <module name="day34-01-web" />
+        <module name="day34-04-aera" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="day34-01-web" target="1.8" />
+      <module name="day34-02-web" target="1.8" />
+      <module name="day34-03-myutils" target="1.8" />
+      <module name="day34-04-aera" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

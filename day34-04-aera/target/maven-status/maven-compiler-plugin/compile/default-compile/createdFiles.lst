@@ -1,0 +1,7 @@
+com\heima\dao\AreaDao.class
+com\heima\service\AreaService.class
+com\heima\entity\Area.class
+com\heima\utils\MyBatisUtils.class
+com\heima\service\impl\AreaServiceImpl.class
+com\heima\servlet\servlet.class
+com\heima\utils\DaoInstanceFactory.class

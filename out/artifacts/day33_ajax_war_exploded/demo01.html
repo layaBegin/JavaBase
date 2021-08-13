@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js箭头函数</title>
+</head>
+<body>
+<input type="button" id="btn" value="点击">
+
+</body>
+<script>
+    let sum = function (a,b) {
+        return a+b;
+    }
+    let sum1 = (a,b)=> a+b
+    document.write(sum(3,5)+"<br/>")
+    document.write(sum1(4,8)+"<br/>")
+
+    // document.getElementById("btn").onclick = function(){
+    //     alert(this)
+    // }
+
+    //箭头函数的 this 是指再上一级对象，而function里的this 指的是 本对象
+    document.getElementById("btn").onclick = ()=> alert(this)
+
+</script>
+</html>

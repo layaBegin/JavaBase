@@ -98,7 +98,7 @@
         }
     }
     function jumpPage(page,size) {
-        location.href = "contact?currentPage=" + page + "&size=" + size
+        location.href = `contact?currentPage=\${page}&size=\${size}`;
     }
 
     window.onload = function () {

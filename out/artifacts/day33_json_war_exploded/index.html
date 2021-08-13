@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>自动完成</title>
+	<style type="text/css">
+		.content {
+			width: 400px;
+			margin: 30px auto;
+			text-align: center;
+		}
+
+		input[type='text'] {
+			box-sizing: border-box;
+			width: 280px;
+			height: 30px;
+			font-size: 14px;
+			border: 1px solid black;
+		}
+
+		input[type='button'] {
+			width: 100px;
+			height: 30px;
+			background: #38f;
+			border: 0;
+			color: #fff;
+			font-size: 15px;
+		}
+
+		#show {
+			box-sizing: border-box;
+			position: relative;
+			left: 8px;
+			font-size: 14px;
+			width: 280px;
+			border: 1px solid black;
+			text-align: left;
+			border-top: 0;
+			/*一开始是隐藏不可见*/
+			display: none;
+		}
+
+		#show div {
+			padding: 4px;
+			background-color: white;
+		}
+
+		#show div:hover {
+			/*鼠标移上去背景变色*/
+			background-color: #3388ff;
+			color: white;
+		}
+	</style>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<div class="content">
+    <img alt="传智播客" src="img/logo.png"><br/><br/>
+    <input type="text" name="word" id="word">
+    <input type="button" value="搜索一下">
+    <div id="show"></div>
+</div>
+
+<script type="text/javascript">
+
+    $("#word").keyup(function () {
+        let name = $(this).val();
+        if (name == ""){
+            // $("#show").hide()
+            $("#show").slideUp(300)
+
+        }else {
+            $.get({
+                url:"user",
+                data:{
+                    name:$("#word").val()
+                },
+                success:function (users) {
+                    if (users.length > 0){
+                        let str =``;
+                        for (let user of users) {
+                            str += `<div>${user.name}</div>`
+                        }
+                        $("#show").html(str)
+                        $("#show div").click(function () {
+                            $("#word").val($(this).text())
+                            $("#show").hide();
+                        })
+                        //$("#show").show()
+                        $("#show").slideDown(300)
+                    }else {
+                        // $("#show").hide()
+                        $("#show").slideUp(300)
+                    }
+                },
+                error:function (err) {
+                    alert(err)
+                }
+            })
+        }
+
+    });
+
+</script>
+</body>
+</html>

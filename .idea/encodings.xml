@@ -2,6 +2,8 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/day04/src/com/heima/helloworld/ScannerDemo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day34-01-web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/day34-01-web/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jinjieDay11_bufferedStream/src/test14.txt" charset="GBK" />
   </component>
 </project>
