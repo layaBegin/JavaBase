@@ -34,6 +34,16 @@
       <module fileurl="file://$PROJECT_DIR$/day34-02-web/day34-02-web.iml" filepath="$PROJECT_DIR$/day34-02-web/day34-02-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/day34-03-myutils/day34-03-myutils.iml" filepath="$PROJECT_DIR$/day34-03-myutils/day34-03-myutils.iml" />
       <module fileurl="file://$PROJECT_DIR$/day34-04-aera/day34-04-aera.iml" filepath="$PROJECT_DIR$/day34-04-aera/day34-04-aera.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day35-01-Spring/day35-01-Spring.iml" filepath="$PROJECT_DIR$/day35-01-Spring/day35-01-Spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day35-02-annotation/day35-02-annotation.iml" filepath="$PROJECT_DIR$/day35-02-annotation/day35-02-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day36-01-jdbcTemplate/day36-01-jdbcTemplate.iml" filepath="$PROJECT_DIR$/day36-01-jdbcTemplate/day36-01-jdbcTemplate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day36-02-Spring-CRUD/day36-01-jdbcTemplate (1).iml" filepath="$PROJECT_DIR$/day36-02-Spring-CRUD/day36-01-jdbcTemplate (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/day36-02-Spring-CRUD/day36-02-Spring-CRUD.iml" filepath="$PROJECT_DIR$/day36-02-Spring-CRUD/day36-02-Spring-CRUD.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day36-02-Spring-muti-import/day36-02-Spring-muti-import.iml" filepath="$PROJECT_DIR$/day36-02-Spring-muti-import/day36-02-Spring-muti-import.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day36-04-Spring-xml-annotation/day36-04-Spring-xml-annotation.iml" filepath="$PROJECT_DIR$/day36-04-Spring-xml-annotation/day36-04-Spring-xml-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day36-05-Spring-annotation/day36-05-Spring-annotation.iml" filepath="$PROJECT_DIR$/day36-05-Spring-annotation/day36-05-Spring-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day36-05-Spring-annotation/day36-07-cglib-proxy/day36-07-cglib-proxy.iml" filepath="$PROJECT_DIR$/day36-05-Spring-annotation/day36-07-cglib-proxy/day36-07-cglib-proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day37-01-aop/day37-01-aop.iml" filepath="$PROJECT_DIR$/day37-01-aop/day37-01-aop.iml" />
       <module fileurl="file://$PROJECT_DIR$/jinjieDay01/jinjieDay01.iml" filepath="$PROJECT_DIR$/jinjieDay01/jinjieDay01.iml" />
       <module fileurl="file://$PROJECT_DIR$/jinjieDay02/jinjieDay02.iml" filepath="$PROJECT_DIR$/jinjieDay02/jinjieDay02.iml" />
       <module fileurl="file://$PROJECT_DIR$/jinjieDay03/jinjieDay03.iml" filepath="$PROJECT_DIR$/jinjieDay03/jinjieDay03.iml" />

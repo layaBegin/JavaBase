@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    导入druid 的配置文件-->
+    <context:property-placeholder location="classpath:druid.properties"/>
+
+    <!--1. 定义数据源，指定数据库的四个必须的连接参数-->
+    <!--使用德鲁伊连接池-->
+    <bean class="com.alibaba.druid.pool.DruidDataSource" id="dataSource">
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+    </bean>
+
+    <!--2. 创建Jdbc模板，注入数据源-->
+    <bean class="org.springframework.jdbc.core.JdbcTemplate" id="jdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+<!--    3,将dao 放如容器中，并注入模板对象-->
+    <bean class="com.heima.dao.impl.StudentDaoImpl" id="studentDao">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+<!--    4,将service 注入容器 并赋值dao-->
+    <bean class="com.heima.service.impl.StudentServiceImpl" id="studentService">
+        <property name="studentDao" ref="studentDao"/>
+    </bean>
+</beans>

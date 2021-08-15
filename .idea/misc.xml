@@ -19,6 +19,15 @@
         <option value="$PROJECT_DIR$/day34-02-web/pom.xml" />
         <option value="$PROJECT_DIR$/day34-03-myutils/pom.xml" />
         <option value="$PROJECT_DIR$/day34-04-aera/pom.xml" />
+        <option value="$PROJECT_DIR$/day35-01-Spring/pom.xml" />
+        <option value="$PROJECT_DIR$/day35-02-annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/day36-01-jdbcTemplate/pom.xml" />
+        <option value="$PROJECT_DIR$/day36-02-Spring-CRUD/pom.xml" />
+        <option value="$PROJECT_DIR$/day36-02-Spring-muti-import/pom.xml" />
+        <option value="$PROJECT_DIR$/day36-04-Spring-xml-annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/day36-05-Spring-annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/day36-05-Spring-annotation/day36-07-cglib-proxy/pom.xml" />
+        <option value="$PROJECT_DIR$/day37-01-aop/pom.xml" />
       </list>
     </option>
   </component>
