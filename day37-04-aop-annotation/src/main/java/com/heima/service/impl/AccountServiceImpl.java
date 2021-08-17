@@ -3,7 +3,7 @@ package com.heima.service.impl;
 import com.heima.service.AccountService;
 import org.springframework.stereotype.Service;
 
-
+@Service
 public class AccountServiceImpl implements AccountService {
     @Override
     public int saveAccount(String name) {

@@ -8,11 +8,7 @@
     <aop:config>
         <aop:pointcut id="pt" expression="execution(* com.heima.service.impl.AccountServiceImpl.*(..))"/>
         <aop:aspect id="as" ref="logAspect">
-            <aop:before method="before" pointcut-ref="pt"/>
-            <aop:after-returning method="afterReturning" pointcut-ref="pt"/>
-            <aop:after-throwing method="afterThrowing" pointcut-ref="pt"/>
-<!--            最终通知：无论是否有异常，都会执行，如果配置在后置通知前，则会先与后置通知执行-->
-            <aop:after method="after" pointcut-ref="pt"/>
+            <aop:around method="around" pointcut-ref="pt"/>
         </aop:aspect>
     </aop:config>
 </beans>

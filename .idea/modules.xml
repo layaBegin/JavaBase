@@ -44,6 +44,10 @@
       <module fileurl="file://$PROJECT_DIR$/day36-05-Spring-annotation/day36-05-Spring-annotation.iml" filepath="$PROJECT_DIR$/day36-05-Spring-annotation/day36-05-Spring-annotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/day36-05-Spring-annotation/day36-07-cglib-proxy/day36-07-cglib-proxy.iml" filepath="$PROJECT_DIR$/day36-05-Spring-annotation/day36-07-cglib-proxy/day36-07-cglib-proxy.iml" />
       <module fileurl="file://$PROJECT_DIR$/day37-01-aop/day37-01-aop.iml" filepath="$PROJECT_DIR$/day37-01-aop/day37-01-aop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day37-02-around/day37-02-around.iml" filepath="$PROJECT_DIR$/day37-02-around/day37-02-around.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day37-04-aop-annotation/day37-04-aop-annotation.iml" filepath="$PROJECT_DIR$/day37-04-aop-annotation/day37-04-aop-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day37-05-transaction/day37-05-transaction.iml" filepath="$PROJECT_DIR$/day37-05-transaction/day37-05-transaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day37-06-transaction-annotation/day37-06-transaction-annotation.iml" filepath="$PROJECT_DIR$/day37-06-transaction-annotation/day37-06-transaction-annotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/jinjieDay01/jinjieDay01.iml" filepath="$PROJECT_DIR$/jinjieDay01/jinjieDay01.iml" />
       <module fileurl="file://$PROJECT_DIR$/jinjieDay02/jinjieDay02.iml" filepath="$PROJECT_DIR$/jinjieDay02/jinjieDay02.iml" />
       <module fileurl="file://$PROJECT_DIR$/jinjieDay03/jinjieDay03.iml" filepath="$PROJECT_DIR$/jinjieDay03/jinjieDay03.iml" />

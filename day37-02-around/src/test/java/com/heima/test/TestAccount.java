@@ -10,15 +10,13 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ContextConfiguration("classpath:applicationContext.xml")
 @ExtendWith(SpringExtension.class)
 public class TestAccount {
-
     @Autowired
     AccountService accountService;
-
     @Test
     public void test1(){
-        accountService.saveAccount("zhangshan");
+        int count = accountService.saveAccount("rose");
+        System.out.println("返回值："+ count);
     }
-
     @Test
     public void testUpdate(){
         accountService.update();

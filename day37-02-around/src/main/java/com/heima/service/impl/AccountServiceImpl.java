@@ -11,7 +11,7 @@ public class AccountServiceImpl implements AccountService {
             throw new RuntimeException("垃圾");
         }
         System.out.println("保存了账户：" + name);
-        return 0;
+        return 1;
     }
 
     @Override

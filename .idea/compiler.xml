@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="day36-05-Spring-annotation" />
         <module name="day36-04-Spring-xml-annotation" />
+        <module name="day37-06-transaction-annotation" />
+        <module name="day37-04-aop-annotation" />
         <module name="day37-01-aop" />
         <module name="day35-01-Spring" />
         <module name="day34-02-web" />
@@ -15,9 +17,11 @@
         <module name="day34-01-web" />
         <module name="day36-01-jdbcTemplate (1)" />
         <module name="day36-02-Spring-muti-import" />
+        <module name="day37-02-around" />
         <module name="day36-01-jdbcTemplate" />
         <module name="day34-03-myutils" />
         <module name="day35-02-annotation" />
+        <module name="day37-05-transaction" />
         <module name="day36-02-Spring-CRUD" />
         <module name="day34-04-aera" />
       </profile>
@@ -37,6 +41,10 @@
       <module name="day36-05-Spring-annotation" target="1.8" />
       <module name="day36-07-cglib-proxy" target="1.8" />
       <module name="day37-01-aop" target="1.8" />
+      <module name="day37-02-around" target="1.8" />
+      <module name="day37-04-aop-annotation" target="1.8" />
+      <module name="day37-05-transaction" target="1.8" />
+      <module name="day37-06-transaction-annotation" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
