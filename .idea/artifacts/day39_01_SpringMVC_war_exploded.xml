@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="day39-01-SpringMVC:war exploded">
+    <output-path>$PROJECT_DIR$/day39-01-SpringMVC/target/day39-01-SpringMVC-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>day39-01-SpringMVC</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="day39-01-SpringMVC" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/day39-01-SpringMVC/target/day39-01-SpringMVC-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="day39-01-SpringMVC/web/Web" />
+    </root>
+  </artifact>
+</component>

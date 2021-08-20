@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+</head>
+<body>
+<!--
+上传文件三要素：
+    1. 必须使用post方法提交
+    2. 必须指定：enctype="multipart/form-data"
+    3. 必须使用文件域，指定name属性
+-->
+<form action="upload" method="post" enctype="multipart/form-data">
+    用户名：
+    <input type="text" name="username" placeholder="请输入用户名"> <br/>
+    照片：
+    <input type="file" name="photo" accept="image/*"> <br/>
+    <input type="submit" value="上传文件">
+</form>
+</body>
+</html>

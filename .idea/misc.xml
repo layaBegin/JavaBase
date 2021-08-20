@@ -6,6 +6,9 @@
     <file type="web" url="file://$PROJECT_DIR$/day34-01-web" />
     <file type="web" url="file://$PROJECT_DIR$/day34-02-web" />
     <file type="web" url="file://$PROJECT_DIR$/day34-04-aera" />
+    <file type="web" url="file://$PROJECT_DIR$/day38-01-springMVC" />
+    <file type="web" url="file://$PROJECT_DIR$/day39-01-spring-MVC" />
+    <file type="web" url="file://$PROJECT_DIR$/day39-01-SpringMVC" />
   </component>
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../doc" />
@@ -32,6 +35,9 @@
         <option value="$PROJECT_DIR$/day37-04-aop-annotation/pom.xml" />
         <option value="$PROJECT_DIR$/day37-05-transaction/pom.xml" />
         <option value="$PROJECT_DIR$/day37-06-transaction-annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/day38-01-springMVC/pom.xml" />
+        <option value="$PROJECT_DIR$/day39-01-SpringMVC/pom.xml" />
+        <option value="$PROJECT_DIR$/day39-01-spring-MVC/pom.xml" />
       </list>
     </option>
   </component>

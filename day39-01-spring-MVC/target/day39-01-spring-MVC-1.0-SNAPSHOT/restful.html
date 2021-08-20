@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>restful</title>
+</head>
+<body>
+<h1>get请求</h1>
+<form action="user" method="get">
+    <input type="submit" value="get提交">
+
+</form>
+
+<form action="user/男" method="post">
+    <input type="submit" value="post提交">
+
+</form>
+
+<form action="user" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="submit" value="put提交">
+</form>
+<form action="user" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="delete提交">
+</form>
+</body>
+</html>
