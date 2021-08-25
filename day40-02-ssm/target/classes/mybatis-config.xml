@@ -1,0 +1,37 @@
+
+<!--整个文件可以删掉-->
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <!--在控制台显示SQL语句-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--<environments default="default">
+        &lt;!&ndash;环境变量&ndash;&gt;
+        <environment id="default">
+            &lt;!&ndash;事务管理器&ndash;&gt;
+            <transactionManager type="JDBC"/>
+            &lt;!&ndash;数据源&ndash;&gt;
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/day40"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+    </environments>-->
+   <!-- &lt;!&ndash;定义实体类别名&ndash;&gt;
+    <typeAliases>
+        <package name="com.heima.entity"/>
+    </typeAliases>-->
+    <!--&lt;!&ndash;加载其它映射文件&ndash;&gt;
+    <mappers>
+        <package name="com.heima.dao"/>
+    </mappers>-->
+</configuration>

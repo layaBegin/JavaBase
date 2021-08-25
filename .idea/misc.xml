@@ -9,6 +9,8 @@
     <file type="web" url="file://$PROJECT_DIR$/day38-01-springMVC" />
     <file type="web" url="file://$PROJECT_DIR$/day39-01-spring-MVC" />
     <file type="web" url="file://$PROJECT_DIR$/day39-01-SpringMVC" />
+    <file type="web" url="file://$PROJECT_DIR$/day40-01-Interceptor" />
+    <file type="web" url="file://$PROJECT_DIR$/day40-02-ssm" />
   </component>
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../doc" />
@@ -38,6 +40,8 @@
         <option value="$PROJECT_DIR$/day38-01-springMVC/pom.xml" />
         <option value="$PROJECT_DIR$/day39-01-SpringMVC/pom.xml" />
         <option value="$PROJECT_DIR$/day39-01-spring-MVC/pom.xml" />
+        <option value="$PROJECT_DIR$/day40-01-Interceptor/pom.xml" />
+        <option value="$PROJECT_DIR$/day40-02-ssm/pom.xml" />
       </list>
     </option>
   </component>

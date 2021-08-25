@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- 扫描的业务层，不要扫描其它层 -->
+    <context:component-scan base-package="com.heima.service"/>
+
+    <!-- 读取配置文件 -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <!-- 配置连接池 -->
+    <bean class="com.alibaba.druid.pool.DruidDataSource" id="dataSource">
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+    </bean>
+
+    <!-- 创建会话工厂类 -->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 必须：指定会话工厂的数据源对象 -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 定义别名的属性，指定实体类的包 -->
+        <property name="typeAliasesPackage" value="com.heima.entity"/>
+        <!-- 指定dao映射文件：如果接口与xml在同一个包下，并且文件名相同，则可以省略
+        <property name="mapperLocations" value="classpath:com/heima/dao/*.xml"/>  -->
+    </bean>
+
+    <!-- 扫描dao接口所在的包 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--
+         1. 将dao接口中所有的注解进行扫描
+         2. 将这个包下所有的xml文件进行扫描
+         3. 生成dao接口的代理对象，相当于以前我们写的 DaoInstanceFactory.getBean(UserDao.class)
+         -->
+        <property name="basePackage" value="com.heima.dao"/>
+    </bean>
+
+
+    <!-- 事务处理: 配置事务管理器 -->
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- 事务注解驱动 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+</beans>

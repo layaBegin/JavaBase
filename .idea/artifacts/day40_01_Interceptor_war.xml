@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="day40-01-Interceptor:war">
+    <output-path>$PROJECT_DIR$/day40-01-Interceptor/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>day40-01-Interceptor</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="day40-01-Interceptor-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="day40-01-Interceptor:war exploded" />
+    </root>
+  </artifact>
+</component>

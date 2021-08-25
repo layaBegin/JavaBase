@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省市级联</title>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+</head>
+<body>
+
+<select id="province">
+    <option>---请选择省---</option>
+</select>
+<select id="city">
+    <option>---请选择城市---</option>
+</select>
+
+<script type="text/javascript">
+//window.onload 可以写成
+    $(function () {
+        $.get({
+            url:"area",
+            data:{
+                pid:0 //查詢所有省份
+            },
+            success:function (areas) {
+                let str  = `<option>---请选择省---</option>`
+                for (area of areas){
+                    str += `<option value="${area.id}">${area.name}</option>>`
+                }
+                $("#province").html(str);
+            }
+        })
+ 
+        $("#province").change(function () {
+            let pid = $(this).val()
+            $.get({
+                url:"area",
+                data:{
+                    pid:`${pid}` //查詢所有省份
+                },
+                success:function (areas) {
+                    let str  = `<option>---请选择城市---</option>`
+                    for (area of areas){
+                        str += `<option value="${area.id}">${area.name}</option>>`
+                    }
+                    $("#city").html(str);
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>
