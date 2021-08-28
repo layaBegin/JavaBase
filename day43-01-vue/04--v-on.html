@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>v-html 和v-text</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+<!--    :表示绑定了name属性 -->
+    <input type="text" :value="name" >
+    <input type="button" v-on:click="hello" value="问候" @blur="sleep">
+<!--    简写-->
+    <input type="button" @click="say()" value="say" >
+</div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            name:"孙悟空"
+        },
+        methods:{
+            hello(){
+                this.name = "白骨精"
+            },
+            say(){
+                this.name = "猪八戒"
+            },
+
+            sleep(){
+                alert(this.name)
+            }
+        }
+    })
+</script>
+</html>

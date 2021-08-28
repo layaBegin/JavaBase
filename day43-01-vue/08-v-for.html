@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <ul>
+        <li v-for="stu in students">{{stu}}</li>
+    </ul>
+
+    <ol>
+        <li v-for="(person,index) in persons">名字：{{person.name}} 年龄：{{person.age}} 索引：{{index}} </li>
+    </ol>
+    <ul>
+        <li v-for="(value,key,index) in girl">值：{{value}} 键：{{key}} 索引：{{index}}</li>
+    </ul>
+    <span v-for="i in 10">{{i}}</span>
+</div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            students:["张山","lishi","wangwu","zhaoliu"],
+            persons:[
+                {
+                    name:"zhangshan",
+                    age:18
+                },{
+                    name:"lishi",
+                    age:19
+                },{
+                    name:"wangwu",
+                    age:20
+                }],
+            girl:{
+                name:"xiaoyu",
+                age:18,
+                sex:"nv"
+            }
+        },
+        methods:{
+
+        }
+    })
+</script>
+</html>

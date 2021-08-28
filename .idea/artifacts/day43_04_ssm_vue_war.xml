@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="day43-04-ssm-vue:war">
+    <output-path>$PROJECT_DIR$/day43-04-ssm-vue/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>day43-04-ssm-vue</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="day43-04-ssm-vue-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="day43-04-ssm-vue:war exploded" />
+    </root>
+  </artifact>
+</component>

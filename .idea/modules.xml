@@ -30,8 +30,6 @@
       <module fileurl="file://$PROJECT_DIR$/day09/day09.iml" filepath="$PROJECT_DIR$/day09/day09.iml" />
       <module fileurl="file://$PROJECT_DIR$/day33_ajax/day33_ajax.iml" filepath="$PROJECT_DIR$/day33_ajax/day33_ajax.iml" />
       <module fileurl="file://$PROJECT_DIR$/day33_json/day33_json.iml" filepath="$PROJECT_DIR$/day33_json/day33_json.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day34-01-web/day34-01-web.iml" filepath="$PROJECT_DIR$/day34-01-web/day34-01-web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day34-02-web/day34-02-web.iml" filepath="$PROJECT_DIR$/day34-02-web/day34-02-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/day34-03-myutils/day34-03-myutils.iml" filepath="$PROJECT_DIR$/day34-03-myutils/day34-03-myutils.iml" />
       <module fileurl="file://$PROJECT_DIR$/day34-04-aera/day34-04-aera.iml" filepath="$PROJECT_DIR$/day34-04-aera/day34-04-aera.iml" />
       <module fileurl="file://$PROJECT_DIR$/day35-01-Spring/day35-01-Spring.iml" filepath="$PROJECT_DIR$/day35-01-Spring/day35-01-Spring.iml" />
@@ -53,6 +51,19 @@
       <module fileurl="file://$PROJECT_DIR$/day39-01-spring-MVC/day39-01-spring-MVC.iml" filepath="$PROJECT_DIR$/day39-01-spring-MVC/day39-01-spring-MVC.iml" />
       <module fileurl="file://$PROJECT_DIR$/day40-01-Interceptor/day40-01-Interceptor.iml" filepath="$PROJECT_DIR$/day40-01-Interceptor/day40-01-Interceptor.iml" />
       <module fileurl="file://$PROJECT_DIR$/day40-02-ssm/day40-02-ssm.iml" filepath="$PROJECT_DIR$/day40-02-ssm/day40-02-ssm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day41-02-a/day41-02-a.iml" filepath="$PROJECT_DIR$/day41-02-a/day41-02-a.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day41-04-nexus-a/day41-04-nexus-a.iml" filepath="$PROJECT_DIR$/day41-04-nexus-a/day41-04-nexus-a.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day41-05-nexus-b/day41-05-nexus-b.iml" filepath="$PROJECT_DIR$/day41-05-nexus-b/day41-05-nexus-b.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day41-06-parent/day41-06-parent.iml" filepath="$PROJECT_DIR$/day41-06-parent/day41-06-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day41-07-parent/day41-07-child/day41-07-child.iml" filepath="$PROJECT_DIR$/day41-07-parent/day41-07-child/day41-07-child.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day41-07-parent/day41-07-parent.iml" filepath="$PROJECT_DIR$/day41-07-parent/day41-07-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day41-08-exercise-parent/day41-08-exercise-parent.iml" filepath="$PROJECT_DIR$/day41-08-exercise-parent/day41-08-exercise-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day42-01-jedis/day42-01-jedis.iml" filepath="$PROJECT_DIR$/day42-01-jedis/day42-01-jedis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day42-02-exercise/day42-02-exercise.iml" filepath="$PROJECT_DIR$/day42-02-exercise/day42-02-exercise.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day43-01-vue/day43-01-vue.iml" filepath="$PROJECT_DIR$/day43-01-vue/day43-01-vue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day43-02-axios/day43-02-axios.iml" filepath="$PROJECT_DIR$/day43-02-axios/day43-02-axios.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day43-03-axios/day43-03-axios.iml" filepath="$PROJECT_DIR$/day43-03-axios/day43-03-axios.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day43-04-ssm-vue/day43-04-ssm-vue.iml" filepath="$PROJECT_DIR$/day43-04-ssm-vue/day43-04-ssm-vue.iml" />
       <module fileurl="file://$PROJECT_DIR$/jinjieDay01/jinjieDay01.iml" filepath="$PROJECT_DIR$/jinjieDay01/jinjieDay01.iml" />
       <module fileurl="file://$PROJECT_DIR$/jinjieDay02/jinjieDay02.iml" filepath="$PROJECT_DIR$/jinjieDay02/jinjieDay02.iml" />
       <module fileurl="file://$PROJECT_DIR$/jinjieDay03/jinjieDay03.iml" filepath="$PROJECT_DIR$/jinjieDay03/jinjieDay03.iml" />
@@ -75,6 +86,10 @@
       <module fileurl="file://$PROJECT_DIR$/mysql/mysql.iml" filepath="$PROJECT_DIR$/mysql/mysql.iml" />
       <module fileurl="file://$PROJECT_DIR$/mysql/mysql_mybatis.iml" filepath="$PROJECT_DIR$/mysql/mysql_mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/mysql_mybatis1/mysql_mybatis1.iml" filepath="$PROJECT_DIR$/mysql_mybatis1/mysql_mybatis1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day41-08-exercise-parent/ssm-dao/ssm-dao.iml" filepath="$PROJECT_DIR$/day41-08-exercise-parent/ssm-dao/ssm-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day41-08-exercise-parent/ssm-entity/ssm-entity.iml" filepath="$PROJECT_DIR$/day41-08-exercise-parent/ssm-entity/ssm-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day41-08-exercise-parent/ssm-service/ssm-service.iml" filepath="$PROJECT_DIR$/day41-08-exercise-parent/ssm-service/ssm-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day41-08-exercise-parent/ssm-web/ssm-web.iml" filepath="$PROJECT_DIR$/day41-08-exercise-parent/ssm-web/ssm-web.iml" />
     </modules>
   </component>
 </project>

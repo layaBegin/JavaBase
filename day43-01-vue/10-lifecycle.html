@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue模板</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <span id="book">{{book}}</span>
+    <input type="button" value="显示内容" @click="read()">
+    <input type="button" value="销毁" @click="kill()">
+</div>
+
+<script type="text/javascript">
+    let app = new Vue({
+        el: "#app",
+        data: {
+            book:"西游记"
+        },
+        methods: {
+            read(){
+                this.book = "红雷梦"
+                //alert("读"+this.book)
+            },
+            kill(){
+                app.$destroy();
+            }
+        },
+        //创建vue 之前执行的方法
+        beforeCreate(){
+            /*alert(this.book)
+            this.read()*/
+        },
+        /*类似onLoad
+        * */
+        created(){
+            // alert(this.book)
+            // this.read()
+        },
+        /**
+         * 激活元素前,原样输出 {{book}}
+         */
+        beforeMount(){
+            //alert(document.getElementById("book").innerText)
+        },
+        // 激活后，文本替换
+        mounted(){
+            //alert(document.getElementById("book").innerText)
+
+        },
+        beforeUpdate(){
+            //alert(document.getElementById("book").innerText)
+
+        },
+        updated(){
+            //alert(document.getElementById("book").innerText)
+
+        },
+        beforeDestroy(){
+            alert("销毁前")
+
+        },
+        destroyed(){
+            alert("销毁后")
+
+        }
+    });
+</script>
+</body>
+</html>

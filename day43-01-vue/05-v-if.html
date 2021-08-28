@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>v-html 和v-text</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+<!--    flag 为真则显示，假不显示-->
+    <!--<template v-if="flag">
+         <h1 >孙悟空</h1>
+         <hr/>
+         <span>asdffd </span>
+         <hr/>
+         <span>asdffd </span>
+    </template>-->
+
+    <span v-if="grade=='A'">优秀</span>
+    <span v-else-if="grade=='B'">良好</span>
+    <span v-else>不及格</span>
+</div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            grade:'B'
+        },
+        methods:{
+
+        }
+    })
+</script>
+</html>

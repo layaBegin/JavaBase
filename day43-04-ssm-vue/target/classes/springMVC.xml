@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--   1.扫描控制器-->
+    <context:component-scan base-package="com.heima.controller"/>
+    <!--2. 指定视图解析器，指定前缀和后缀 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+
+
+    <!--3. 指定mvc注解的驱动，注：不要选错了-->
+    <mvc:annotation-driven/>
+
+    <!--    4 将静态资源交给默认Servlet处理-->
+    <mvc:default-servlet-handler default-servlet-name="default"/>
+</beans>

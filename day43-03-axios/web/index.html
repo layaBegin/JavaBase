@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/axios-0.19.0.js"></script>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    用户名：
+    <input type="text" placeholder="请输入用户名" v-model="name" @blur="checkUser"><span>{{msg}}</span>
+</div>
+</body>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"",
+            name:""
+        },
+        methods:{
+            checkUser(){
+                //两种写法都可以
+                //axios.get("user?name="+ this.name)
+                //axios.get("user",{params:{name:this.name}})
+                //axios.post("user",{params:{name:this.name}})//这种写法在servlet 中获取不到数据，主要用在springMVC中
+                axios.post("user","name="+this.name)
+                    .then(response => {
+                        //如果要使this为 vue 对象，要使用箭头函数，而不是匿名函数
+                        //alert(this);
+                        //data 属性获取服务器返回的数据
+                        this.msg = response.data;
+                })
+                //出现异常
+                .catch(err => {
+                    alert("错误："+err.methods)
+                });
+            }
+        }
+    })
+</script>
+</html>

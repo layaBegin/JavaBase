@@ -11,6 +11,9 @@
     <file type="web" url="file://$PROJECT_DIR$/day39-01-SpringMVC" />
     <file type="web" url="file://$PROJECT_DIR$/day40-01-Interceptor" />
     <file type="web" url="file://$PROJECT_DIR$/day40-02-ssm" />
+    <file type="web" url="file://$PROJECT_DIR$/day41-08-exercise-parent/ssm-web" />
+    <file type="web" url="file://$PROJECT_DIR$/day42-02-exercise" />
+    <file type="web" url="file://$PROJECT_DIR$/day43-04-ssm-vue" />
   </component>
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../doc" />
@@ -20,8 +23,6 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/day34-01-web/pom.xml" />
-        <option value="$PROJECT_DIR$/day34-02-web/pom.xml" />
         <option value="$PROJECT_DIR$/day34-03-myutils/pom.xml" />
         <option value="$PROJECT_DIR$/day34-04-aera/pom.xml" />
         <option value="$PROJECT_DIR$/day35-01-Spring/pom.xml" />
@@ -42,6 +43,20 @@
         <option value="$PROJECT_DIR$/day39-01-spring-MVC/pom.xml" />
         <option value="$PROJECT_DIR$/day40-01-Interceptor/pom.xml" />
         <option value="$PROJECT_DIR$/day40-02-ssm/pom.xml" />
+        <option value="$PROJECT_DIR$/../day40(SSM整合与综合练习)/代码/day41-01-system/pom.xml" />
+        <option value="$PROJECT_DIR$/../day40(SSM整合与综合练习)/代码/day41-02-a/pom.xml" />
+        <option value="$PROJECT_DIR$/../day40(SSM整合与综合练习)/代码/day41-03-b/pom.xml" />
+        <option value="$PROJECT_DIR$/../day40(SSM整合与综合练习)/代码/day41-04-nexus-a/pom.xml" />
+        <option value="$PROJECT_DIR$/day41-04-nexus-a/pom.xml" />
+        <option value="$PROJECT_DIR$/day41-05-nexus-b/pom.xml" />
+        <option value="$PROJECT_DIR$/day41-06-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/day41-07-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/day41-02-a/pom.xml" />
+        <option value="$PROJECT_DIR$/day41-08-exercise-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/../day42-01-jedis/pom.xml" />
+        <option value="$PROJECT_DIR$/day42-01-jedis/pom.xml" />
+        <option value="$PROJECT_DIR$/day43-04-ssm-vue/pom.xml" />
+        <option value="$PROJECT_DIR$/day42-02-exercise/pom.xml" />
       </list>
     </option>
   </component>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue1</title>
+<!--    1，导入vue-->
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<!--2，创建vue容器，所有与vue有关的内容跟都必须放在这个容器中，才会被DOM解析-->
+<div id="app">
+    {{message}}
+</div>
+</body>
+<script type="text/javascript">
+    new Vue({
+        el:"#app",
+        data:{
+            message:"你好，vue"
+        }
+    });
+</script>
+</html>
