@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <nb-page prev="上一页" next="下一页"/>
+</div>
+
+<script>
+    Vue.component("nb-page",{
+            template:'<div><button @click="goPrev">{{prev}}</button><button @click="goNext">{{next}}</button><span>第{{num}}页</span></div>',
+            props:["prev","next"],
+        //内部使用的属性
+            data(){
+                return {
+                    num:1
+                }
+            },
+            methods:{
+                goPrev(){
+                    if (this.num > 1) this.num--;
+                },
+                goNext(){
+                    if (this.num < 10) this.num++
+                }
+            }
+        }
+    )
+    new Vue({
+        el:"#app",
+
+
+    });
+</script>
+</body>
+</html>

@@ -32,6 +32,7 @@
         <module name="day38-01-springMVC" />
         <module name="day37-05-transaction" />
         <module name="day40-01-Interceptor" />
+        <module name="day44-day45-ssm-vue-element" />
         <module name="day40-02-ssm" />
         <module name="day36-07-cglib-proxy" />
         <module name="day36-05-Spring-annotation" />
@@ -77,6 +78,7 @@
       <module name="day42-01-jedis" target="1.8" />
       <module name="day42-02-exercise" target="1.8" />
       <module name="day43-04-ssm-vue" target="1.8" />
+      <module name="day44-day45-ssm-vue-element" target="1.8" />
       <module name="ssm-dao" target="1.8" />
       <module name="ssm-entity" target="1.8" />
       <module name="ssm-service" target="1.8" />

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <el-button text="孙悟空"/>
+</div>
+
+<script>
+    Vue.component("el-button",{
+            template:'<button style="background-color: forestgreen border-radius:5px;">{{text}}</button>',
+            data(){
+                return {
+                    value:"我是按钮"
+                }
+            },
+            //调用的时候可以传递的属性的名字
+            props:["text"]
+        }
+    )
+    new Vue({
+        el:"#app",
+
+    });
+</script>
+</body>
+</html>
