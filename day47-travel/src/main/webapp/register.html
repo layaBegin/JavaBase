@@ -1,0 +1,204 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>黑马旅游-注册</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" href="css/register.css">
+	<script src="js/jquery-3.3.1.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/axios-0.19.0.js"></script>
+	<style>
+        #msg {
+            color: red;
+            font-size: 12px;
+        }
+		
+		 #sendSmsCode {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<!--引入头部-->
+<div id="header">
+</div>
+<!-- 头部 end -->
+<div class="rg_layout" id="app">
+    <div class="rg_form clearfix">
+        <div class="rg_form_left">
+            <p>新用户注册</p>
+            <p>USER REGISTER</p>
+        </div>
+        <div class="rg_form_center">
+            <!--注册表单-->
+            <form id="registerForm">
+                <table style="margin-top: 25px;width: 558px">
+                    <tr>
+                        <td class="td_left">
+                            <label for="username">用户名</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="text" id="username" v-model="user.username" @blur="checkUsername()" placeholder="请输入账号">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                            <label for="telephone">手机号</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="text" id="telephone" v-model="user.telephone" placeholder="请输入您的手机号">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                            <label for="password">密码</label>
+                        </td>
+                        <td class="td_right">
+                            <input type="password" id="password"  v-model="user.password" placeholder="请输入密码" autocomplete="off">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                            <label for="smsCode">验证码</label>
+                        </td>
+                        <td class="td_right check">
+                            <input type="text" maxlength="6" id="smsCode" v-model="smsCode" class="check" placeholder="请输入验证码">
+                            <input type="button" id="sendSmsCode" :disabled="btnDisable" @click="sendSms()" :value="btnText" class="btn btn-success"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td_left">
+                        </td>
+                        <td class="td_right check">
+                            <input type="button" class="submit" value="注册" @click="clickRegister()">
+<!--                            如果进行属性绑定，属性值是键值对的形式存在，一定要加{}-->
+                            <span id="msg" :style="{color: infoColor}" >{{msg}}</span>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="rg_form_right">
+            <p>
+                已有账号？
+                <a href="login.html">立即登录</a>
+            </p>
+        </div>
+    </div>
+</div>
+<!--引入尾部-->
+<div id="footer">
+</div>
+<script src="js/include.js"></script>
+
+<script type="text/javascript">
+     new Vue({
+         el:"#app",
+         data:{
+             user:{
+                 username:"rtr",
+                 password:"err",
+                 telephone:"13534556781",
+             },
+
+             msg:"2233",
+             infoColor:"black",
+             btnDisable: false,
+             btnText:"发送手机验证码",
+             smsCode:"",
+         },
+         methods:{
+             clickRegister(){
+                 let reg = /^1[345678]\d{9}$/
+                 if (!reg.test(this.user.telephone)){
+                     this.msg = "手机号不合法"
+                     this.infoColor = "red";
+                     return
+                 }
+                 let param = {
+                     user:this.user,
+                     smsCode:this.smsCode
+                 }
+                 //如果发送json 格式，一定要用post请求；
+                 axios.post("/user/register",param).then(resp=>{
+                    let resultInfo = resp.data;
+                    console.log("resultInfo:"+JSON.stringify(resultInfo))
+                    if (resultInfo.success){
+                        this.msg = resultInfo.message;
+                        console.log("===注册成功")
+                        this.infoColor = "black";
+                        location.href = "/register_ok.html"
+                    }else {
+                        this.msg = "注册失败"
+                        this.infoColor = "red";
+                    }
+                 }).catch(err=>{
+                     alert(err.message)
+                     //this.$message.info(err.message);
+                 })
+             },
+             checkUsername(){
+                if (this.user.username == ""){
+                    this.msg = "用户名不能为空";
+                    this.infoColor = "red"
+                    return
+                }
+                axios.get("/user/checkUsername?username="+this.user.username).then(
+                    resp=>{
+                        let data = resp.data;
+                        if (data.success){
+                            this.msg = "";
+                            this.infoColor = "black"
+                        }else {
+                            this.msg = data.message;
+                            this.infoColor = "red"
+                        }
+                    }
+                ).catch()
+             },
+             sendSms(){
+                 let reg = /^1[345678]\d{9}$/
+                 if (!reg.test(this.user.telephone)){
+                     this.msg = "手机号不合法"
+                     this.infoColor = "red";
+                     return
+                 }
+                 //如果发送json 格式，一定要用post请求；
+                 axios.get("/user/sendSms?telephone="+this.user.telephone).then(resp=>{
+                     let resultInfo = resp.data;
+                     console.log("==resultInfo:"+JSON.stringify(resultInfo))
+                     if (resultInfo.success){
+                         this.infoColor = "green";
+                     }else {
+                         this.infoColor = "red";
+                     }
+                     this.countDown(10);
+
+                     this.msg = resultInfo.message;
+
+                 }).catch(err=>{
+                     alert(err.message)
+                     //this.$message.info(err.message);
+                 })
+             },
+             countDown(num){
+                 this.btnDisable = true;
+                 let timeID = setInterval(()=>{
+                     num--;
+                     this.btnText = `${num}秒后可重新发送`
+
+                     if  (num <= 0){
+                        this.btnDisable = false
+                        this.btnText = "发送手机验证码"
+                        clearInterval(timeID)
+                    }
+                 },1000)
+
+             }
+         }
+     })
+</script>
+</body>
+</html>
