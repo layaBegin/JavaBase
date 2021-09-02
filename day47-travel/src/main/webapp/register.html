@@ -126,14 +126,14 @@
                     let resultInfo = resp.data;
                     console.log("resultInfo:"+JSON.stringify(resultInfo))
                     if (resultInfo.success){
-                        this.msg = resultInfo.message;
                         console.log("===注册成功")
                         this.infoColor = "black";
                         location.href = "/register_ok.html"
                     }else {
-                        this.msg = "注册失败"
                         this.infoColor = "red";
                     }
+                     this.msg = resultInfo.message;
+
                  }).catch(err=>{
                      alert(err.message)
                      //this.$message.info(err.message);

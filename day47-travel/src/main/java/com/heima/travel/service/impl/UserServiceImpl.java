@@ -8,13 +8,19 @@ import com.heima.travel.utils.Md5Utils;
 import com.heima.travel.utils.SmsUtils;
 import com.heima.travel.utils.UuidUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
+
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Override
     public User findUserByUsername(String username) {
@@ -51,10 +57,32 @@ public class UserServiceImpl implements UserService {
         //String code = SmsUtils.send(telephone, "黑马旅游网", "SMS_205126318", authCode);
         String code = "ok";//调试用
         if ("ok".equalsIgnoreCase(code)){
+            ValueOperations valueOperations = redisTemplate.opsForValue();
+            //redis 存储短信验证码
+            valueOperations.set("sms_"+telephone,authCode,1, TimeUnit.MINUTES);
             return new ResultInfo(true,"发送成功");
         }else {
             return new ResultInfo(false,"发送失败");
 
         }
+    }
+
+    @Override
+    public ResultInfo login(String username, String password,String authCode) {
+        User user = this.findUserByUsername(username);
+        ValueOperations valueOperations = redisTemplate.opsForValue();
+        String authCodeRedis = (String) valueOperations.get("sms_" + user.getTelephone());
+        //首先验证验证码
+        if (authCodeRedis == null || !authCodeRedis.equalsIgnoreCase(authCode)){
+            return new ResultInfo(false,"验证码错误");
+        }
+        String password1 = user.getPassword();
+        String salt = user.getSalt();
+        String strpPassword = username + password + salt;
+        String md5 = Md5Utils.getMd5(strpPassword);
+        if (!md5.equalsIgnoreCase(password1)){
+            return new ResultInfo(false,"用户名或密码错误");
+        }
+        return new ResultInfo(true,"登录成功");
     }
 }

@@ -11,5 +11,6 @@ public interface UserService {
 
 
     ResultInfo sendSms(String telephone,String authCode);
+    ResultInfo login(String username,String password,String authCode);
 
 }
