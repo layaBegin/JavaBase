@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.InvocationTargetException;
+import java.sql.ResultSet;
 import java.util.Map;
 
 @RestController //默认应该返回json格式，但我们导入了xml依赖，所以以xml格式返回了，不过vue本身可以解析xml
@@ -80,7 +81,7 @@ public class UserController {
 
 
     @RequestMapping("/login")
-    public ResultInfo login(@RequestBody Map<String,Object> param){
+    public ResultInfo login(@RequestBody Map<String,Object> param,HttpSession session){
         String username = (String) param.get("username");
         String password = (String) param.get("password");
         String authCode = (String) param.get("authCode");
@@ -93,8 +94,23 @@ public class UserController {
         if (authCode == null){
             return new ResultInfo(false,"验证码不能为空");
         }
+        return userService.login(username,password,authCode,session);
 
-        return userService.login(username,password,authCode);
+    }
 
+    @RequestMapping("/isLogined")
+    public ResultInfo isLogined(HttpSession session){
+
+        User user = (User) session.getAttribute("user");
+        if  (user == null){
+            return new ResultInfo(false,"未登录");
+        }else {
+            return new ResultInfo(true,"已登录",user);
+        }
+    }
+
+    @RequestMapping("/logout")
+    public void logout(HttpSession session){
+        session.invalidate();
     }
 }

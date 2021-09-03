@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.heima.dao.AddressDao">
+
+   <!--  定义一个共用的代码段 ,也可以直接在java中实现count
+    <sql id="sqlCondition">
+        <if test="condition.address!=null and condition.address!=''">
+            AND address LIKE "%"#{condition.address}"%"
+        </if>
+        <if test="condition.telephone!=null and condition.telephone!=''">
+            AND telephone LIKE "%"#{condition.telephone}"%"
+        </if>
+    </sql>
+
+    &lt;!&ndash; 查询某个用户所有联系地址 &ndash;&gt;
+    <select id="findByUid" resultType="com.heima.entity.Address">
+        SELECT * FROM tab_address WHERE uid=#{uid}
+        <include refid="sqlCondition"/>
+        LIMIT #{begin},#{size}
+    </select>
+
+    &lt;!&ndash; 查询用户的联系地址总记录数 &ndash;&gt;
+    <select id="findCount" resultType="int">
+        SELECT COUNT(*) FROM tab_address WHERE uid=#{uid}
+        <include refid="sqlCondition"/>
+    </select>-->
+</mapper>

@@ -12,6 +12,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -68,7 +69,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResultInfo login(String username, String password,String authCode) {
+    public ResultInfo login(String username, String password, String authCode, HttpSession session) {
         User user = this.findUserByUsername(username);
         ValueOperations valueOperations = redisTemplate.opsForValue();
         String authCodeRedis = (String) valueOperations.get("sms_" + user.getTelephone());
@@ -83,6 +84,7 @@ public class UserServiceImpl implements UserService {
         if (!md5.equalsIgnoreCase(password1)){
             return new ResultInfo(false,"用户名或密码错误");
         }
+        session.setAttribute("user",user);
         return new ResultInfo(true,"登录成功");
     }
 }

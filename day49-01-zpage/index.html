@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zpage</title>
+    <script src="js/vue.js"></script>
+    <script src="js/zpageNav.js"></script>
+    <link rel="stylesheet" href="css/zpageNav.css">
+</head>
+<body>
+<div id="app">
+<!--    page 当前页，total：总页数，page-size：页面的大小，max-page：显示的总页数;
+pageHandler 注册点击页码的事件-->
+    <zpage-nav :page="page" :total="total" :page-size="pageSize" :max-page="maxPage"
+    @pageHandler="changePage">
+    </zpage-nav>
+</div>
+</body>
+<script type="text/javascript">
+    new Vue({
+        el:"#app",
+        data:{
+            page:3,
+            total:100,
+            pageSize:5,
+            maxPage:10
+        },
+        methods:{
+            changePage(num){
+                this.page = num;
+            }
+        }
+    })
+</script>
+</html>

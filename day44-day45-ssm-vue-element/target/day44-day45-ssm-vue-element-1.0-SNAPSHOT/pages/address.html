@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>收货地址管理</title>
+    <!--导入vue-->
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="../element-ui/lib/index.js"></script>
+    <!--导入axios-->
+    <script src="../js/axios-0.19.0.js"></script>
+
+    <style>
+        .address-title {
+            padding: 10px 0px;
+            font-size: 26px;
+            color: #eabc10;
+        }
+
+        .el-row {
+            margin-bottom: 10px;
+        }
+
+        #app {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+<main id="app">
+    <el-row>
+        <el-col :span="24">
+            <el-page-header @back="exit" content="收货人地址管理" title="退出"/>
+        </el-col>
+
+    </el-row>
+<!--    查询框-->
+    <el-row>
+        <el-col :span="6">
+            <el-button type="primary" plain size="small" icon="el-icon-document" @click="showDialog">添加收货地址</el-button>
+        </el-col>
+        <el-col :span="18">
+            <el-form :inline="true" :model="param" class="demo-form-inline" size="small">
+                <el-form-item label="地址">
+                    <el-input v-model="param.address" placeholder="请输入地址"></el-input>
+                </el-form-item>
+                <el-form-item label="电话">
+                    <el-input v-model.nunmber="param.telephone" placeholder="请输入电话"></el-input>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="primary" @click="findAddress()" icon="el-icon-search">查询</el-button>
+                    <el-button type="primary" @click="clearCondition()" icon="el-icon-delete">清除</el-button>
+                </el-form-item>
+            </el-form>
+        </el-col>
+
+    </el-row>
+    <!--表格部分-->
+    <el-row>
+        <el-col :span="24">
+<!-- data 表示 这一页的数据，每一条代表一个address 对象-->
+            <el-table :data="pageBean.data" max-height="95%" style="width: 100%" border>
+
+<!--                index 表示当前第几条-->
+                <el-table-column
+                        label="序号" type="index" width="60" :index="indexMethod">
+                </el-table-column>
+
+                <el-table-column
+                        prop="contact"
+                        label="联系人">
+                </el-table-column>
+
+                <el-table-column
+                        prop="address" min-width="300"
+                        label="联系地址">
+                </el-table-column>
+
+                <el-table-column
+                        prop="telephone"
+                        label="电话">
+                </el-table-column>
+
+                <el-table-column prop="isdefault" label="默认地址">
+                    <template slot-scope="scope">
+                        <el-switch
+                                :value="scope.row.isdefault==1" @change="changeDefaultAddress(scope.row)"
+                                active-text="是"
+                                inactive-text="否">
+                        </el-switch>
+                    </template>
+                </el-table-column>
+
+                <el-table-column label="操作" width="200">
+                    <template slot-scope="scope">
+                        <el-button
+                                size="mini" icon="el-icon-edit" type="success" plain
+                                @click="handleEdit(scope.$index, scope.row)">编辑
+                        </el-button>
+                        <el-button
+                                size="mini"
+                                type="warning" icon="el-icon-delete" plain
+                                @click="handleDelete(scope.$index, scope.row)">删除
+                        </el-button>
+                    </template>
+                </el-table-column>
+
+            </el-table>
+
+        </el-col>
+    </el-row>
+
+    <!-- 分页部分 -->
+    <el-row>
+        <el-col :span="24">
+            <el-row>
+                <el-col :span="24">
+                    <el-pagination
+							background
+                            @size-change="handleSizeChange"
+                            @current-change="handleCurrentChange"
+                            :current-page="1"
+                            :page-sizes="[1,2,3]"
+                            :page-size="param.size"
+                            layout="total, sizes, prev, pager, next, jumper"
+                            :total="pageBean.count">
+                    </el-pagination>
+                </el-col>
+            </el-row>
+
+        </el-col>
+    </el-row>
+
+    <!--
+    新增和修改对话框
+    close-on-click-modal:是否可以通过点击 modal 关闭 Dialog
+     -->
+    <el-dialog title="收货人信息" :visible.sync="dialogFormVisible" width="45%" @close="cancel" :close-on-click-modal="false">
+        <!-- status-icon 为输入框添加了表示校验结果的反馈图标-->
+        <el-form :model="form" :rules="rules" label-width="100px" size="small" ref="addressForm" status-icon>
+            <!-- prop属性用于表单验证 -->
+            <el-form-item label="联系人" prop="contact">
+                <el-input v-model="form.contact" autocomplete="off" placeholder="请输入姓名" prefix-icon="el-icon-user" style="width:90%"/>
+            </el-form-item>
+
+            <el-form-item label="联系地址" prop="address">
+                <el-input v-model="form.address" autocomplete="off" placeholder="请输入联系地址" prefix-icon="el-icon-location" style="width:90%"/>
+            </el-form-item>
+
+            <el-form-item label="电话" prop="telephone">
+                <el-input v-model="form.telephone" type="text" autocomplete="off" placeholder="请输入电话号码" prefix-icon="el-icon-phone" style="width:90%"/>
+            </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+            <el-button @click="cancel" icon="el-icon-ice-cream-round">取 消</el-button>
+            <el-button type="primary" @click="save" icon="el-icon-milk-tea">确 定</el-button>
+        </div>
+    </el-dialog>
+</main>
+</body>
+
+<script type="text/javascript">
+    new Vue({
+        el: "#app",
+        data: {
+            dialogFormVisible: false,  //对话框不可见
+            //表单
+            form: {
+                contact: '',
+                address: '',
+                telephone: ''
+            },
+            //查询参数
+            param: {
+                current: 1,
+                size: 3,
+                telephone:'',
+                address:""
+            },
+            //页面对象
+            pageBean: {},
+            //校验规则
+            rules: {
+                //员工姓名
+                contact: [
+                    {required: true, message: '姓名不能为空', trigger: 'blur'},
+                    {pattern: "^[\u4E00-\u9FA5]{2,4}$", message: '请输入2到4个汉字', trigger: 'blur'}
+                ],
+                address: [
+                    {required: true, message: '联系地址必须输入', trigger: 'blur'},
+                    {min: 5, message: '联系地址必须大于5个字符', trigger: 'blur'}
+                ],
+                telephone: [
+                    {required: true, message: '电话号码不能为空', trigger: 'blur'},
+                    {pattern: "^1[35789]\\d{9}$", message: '电话号码格式不正确', trigger: 'blur'}
+                ]
+            }
+        },
+        methods: {
+            //查询所有地址
+            findAddress() {
+                axios.post("/address/find",this.param).then(resp=>{
+                    let resultInfo = resp.data;
+                    if (resultInfo.success){
+                        this.pageBean = resultInfo.data;
+                    }
+
+                }).catch(err=>{
+                    console.log(err)
+                    alert("findAddress错误："+err.message)
+                })
+            },
+
+            clearCondition() {
+                this.param.address = ""
+                this.param.telephone = ""
+                this.findAddress()
+
+
+            },
+            //第一列的行号
+            indexMethod(index) {
+                return (this.pageBean.current - 1) * this.pageBean.size + index + 1;
+            },
+            //改变页面大小
+            handleSizeChange(val) {
+                this.param.size = val;
+                this.findAddress()
+            },
+            //改变当前页
+            handleCurrentChange(val) {
+                this.param.current = val;
+                this.findAddress()
+            },
+            //对话框的取消按钮
+            cancel() {
+                this.dialogFormVisible = false
+                this.$refs["addressForm"].resetFields();
+            },
+            //显示对象框
+            showDialog() {
+                this.dialogFormVisible = true
+            },
+            //编辑按钮
+            handleEdit(index, row) {
+                this.showDialog();
+                console.log("index:"+index);
+                console.log("row:"+JSON.stringify(row))
+                Object.assign(this.form,row)
+                console.log(this.form)
+            },
+            //确定按钮
+            save() {
+
+                // 为表单绑定验证功能
+                this.$refs["addressForm"].validate((valid) => {
+                    if (valid) {
+                        if (this.form.aid){//有值是更新
+                            axios.post("/address/update",this.form).then(resp=>{
+                                let resultInfo = resp.data;
+                                if (resultInfo.success){
+                                    this.$message.success("更新成功")
+                                    this.cancel();
+                                    this.findAddress()
+                                }
+
+                            }).catch(err=>{
+                                console.log(err)
+                                alert("save错误："+err.message)
+                            })
+                        }else {//无值是添加
+                            axios.post("/address/save",this.form).then(resp=>{
+                                let resultInfo = resp.data;
+                                if (resultInfo.success){
+                                    this.$message.success("保存成功")
+                                    this.cancel();
+
+                                    this.findAddress()
+                                }
+
+                            }).catch(err=>{
+                                console.log(err)
+                                alert("save错误："+err.message)
+                            })
+                        }
+
+                    } else {
+                        return false;
+                    }
+                });
+            },
+            //删除按钮
+            handleDelete(index, row) {
+                this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    let aid = row.aid
+                    axios.get("/address/delete?aid=" + aid).then(resp=>{
+                        let result = resp.data;
+                        if (result.success){
+                            this.$message.success(result.message);
+                            this.findAddress()
+                        }
+                    })
+                }).catch(() => {
+                    //this.$message.info("已取消");
+                });
+
+            },
+            //设置为默认地址
+            changeDefaultAddress(row) {
+                if  (row.isdefault == 1){
+                    return
+                }else {
+                    let aid = row.aid
+                    axios.get("/address/default?aid=" + aid).then(resp=>{
+                        let result = resp.data;
+                        if (result.success){
+                            this.$message.success(" 切换默认地址成功")
+                            this.findAddress()
+                        }
+                    }).catch(err=>{
+                        alert(err.message)
+                    })
+                }
+            },
+            //退出
+            exit() {
+                axios.get("/user/logout").then(resp=>{
+                    if (resp.status == 200){
+                        this.$message.success("退出成功")
+                        //与href 的区别：不能回退到之前的页面, /表示上一级
+                         location.replace("/login.html")
+                    }
+                })
+
+            },
+            onSubmit() {
+                console.log('submit!');
+            }
+        },
+        mounted() {
+            //页面加载就读取所有地址数据
+            this.findAddress();
+        }
+    });
+</script>
+</body>
+</html>

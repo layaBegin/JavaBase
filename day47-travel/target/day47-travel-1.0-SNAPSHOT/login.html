@@ -9,7 +9,12 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/login.css">
+
     <script src="js/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="../element-ui/lib/index.js"></script>
     <script src="js/axios-0.19.0.js"></script>
 </head>
 
@@ -30,18 +35,18 @@
             </div>
             <div class="login_inner">
                 <!--登录错误提示消息-->
-                <div id="errorMsg" class="alert alert-warning alert-dismissible">输入用户名和密码</div>
+                <div id="errorMsg" class="alert alert-warning alert-dismissible" :style="{color: infoColor}">{{msg}}</div>
                 <form id="loginForm">
-                    <input name="username" type="text" placeholder="请输入账号" ref="username" autocomplete="off">
-                    <input name="password" type="password" placeholder="请输入密码" ref="password" autocomplete="off">
+                    <input name="username" type="text" placeholder="请输入账号" v-model="user.username" ref="username" autocomplete="off">
+                    <input name="password" type="password" placeholder="请输入密码" v-model="user.password" ref="password" autocomplete="off">
                     <div class="verify">
-                        <input name="check" type="text" placeholder="请输入验证码" ref="smsCode" autocomplete="off">
-                        <button type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-phone"/>发送手机验证码</button>
+                        <input name="check" type="text" placeholder="请输入验证码" v-model="user.authCode" ref="smsCode" autocomplete="off">
+                        <button type="button" class="btn btn-success btn-sm" @click="onClickSend()" :disabled="btnDisable"><span class="glyphicon glyphicon-phone"/>{{btnText}}</button>
                     </div>
                     <div class="submit_btn">
-                        <button type="button" id="btnLogin">登录</button>
+                        <button type="button" id="btnLogin" @click="onClickLogin()">登录</button>
                         <div class="auto_login">
-                            <input type="checkbox" name="" class="checkbox">
+                            <input type="checkbox" v-model="autoLogin" name="" class="checkbox">
                             <span>自动登录</span>
                         </div>
                     </div>
@@ -54,6 +59,85 @@
 <!--引入尾部-->
 <div id="footer">
 </div>
+<!-- 这里 是用于导入js代码。里面写代码不起作用-->
 <script src="js/include.js"></script>
+
+<script type="text/javascript">
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"请输入用户名和密码",
+            infoColor:'black',
+            user:{
+                username:"",
+                password:"",
+                authCode:"",
+            },
+            btnText:"发送手机验证码",
+            btnDisable:false,
+            autoLogin:false
+        },
+        methods:{
+
+            onClickLogin(){
+
+                axios.post("/user/login",this.user).then(resp=>{
+                    let resultInfo = resp.data;
+                    if (resultInfo.success){
+                        console.log("登录成功");
+                        location.replace("/index.html")
+                    }else {
+                        this.msg = resultInfo.message;
+                        this.infoColor = "red";
+                        console.log("登录失败:"+resultInfo.message)
+                    }
+                }).catch(err=>{
+                    alert(err.message)
+                })
+            },
+            onClickSend(){
+                if (!this.user.username){
+                    this.msg = "用户名不能为空"
+                    this.infoColor = "red";
+                    this.$message('用户名不能为空');
+                    //让光标落入输入框
+                    this.$refs.username.focus();
+                    return
+                }
+                axios.get("/user/sendSmsByUsername?username="+this.user.username).then(resp=>{
+                    let resultInfo = resp.data;
+                    if (resultInfo.success){
+                        console.log(resultInfo.message);
+                        this.infoColor = "green"
+                        this.countDown(60)
+                        //this.$message.success(resultInfo.message)
+                    }else {
+                        this.infoColor = "red"
+
+                        console.log("发送失败："+resultInfo.message)
+                        //this.$message.error(resultInfo.message)
+                    }
+                    this.msg = resultInfo.message;
+                }).catch(err=>{
+                    alert(err.message)
+                })
+            },
+            countDown(num){
+                this.btnDisable = true;
+                let timeID = setInterval(()=>{
+                    num--;
+                    this.btnText = `${num}秒后可重新发送`
+
+                    if  (num <= 0){
+                        this.btnDisable = false
+                        this.btnText = "发送手机验证码"
+                        clearInterval(timeID)
+                    }
+                },1000)
+
+            }
+        }
+    })
+</script>
 </body>
 </html>

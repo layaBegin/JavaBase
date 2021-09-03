@@ -39,7 +39,8 @@
                             <label for="username">用户名</label>
                         </td>
                         <td class="td_right">
-                            <input type="text" id="username" v-model="user.username" placeholder="请输入账号">
+                            <input type="text" id="username" v-model="user.username" @blur="checkUsername()" placeholder="请输入账号">
+
                         </td>
                     </tr>
                     <tr>
@@ -63,8 +64,8 @@
                             <label for="smsCode">验证码</label>
                         </td>
                         <td class="td_right check">
-                            <input type="text" maxlength="6" id="smsCode" class="check" placeholder="请输入验证码">
-                            <input type="button" id="sendSmsCode" value="发送手机验证码" class="btn btn-success"/>
+                            <input type="text" maxlength="6" id="smsCode" v-model="smsCode" class="check" placeholder="请输入验证码">
+                            <input type="button" id="sendSmsCode" :disabled="btnDisable" @click="sendSms()" :value="btnText" class="btn btn-success"/>
                         </td>
                     </tr>
                     <tr>
@@ -97,35 +98,104 @@
          el:"#app",
          data:{
              user:{
-                 username:"",
-                 password:"",
-                 telephone:"",
+                 username:"rtr",
+                 password:"err",
+                 telephone:"13534556781",
              },
+
              msg:"2233",
-             infoColor:"black"
+             infoColor:"black",
+             btnDisable: false,
+             btnText:"发送手机验证码",
+             smsCode:"",
          },
          methods:{
              clickRegister(){
                  let reg = /^1[345678]\d{9}$/
-                 if (!reg.test(this.user.username)){
+                 if (!reg.test(this.user.telephone)){
+                     this.msg = "手机号不合法"
+                     this.infoColor = "red";
+                     return
+                 }
+                 let param = {
+                     user:this.user,
+                     smsCode:this.smsCode
+                 }
+                 //如果发送json 格式，一定要用post请求；
+                 axios.post("/user/register",param).then(resp=>{
+                    let resultInfo = resp.data;
+                    console.log("resultInfo:"+JSON.stringify(resultInfo))
+                    if (resultInfo.success){
+                        console.log("===注册成功")
+                        this.infoColor = "black";
+                        location.href = "/register_ok.html"
+                    }else {
+                        this.infoColor = "red";
+                    }
+                     this.msg = resultInfo.message;
+
+                 }).catch(err=>{
+                     alert(err.message)
+                     //this.$message.info(err.message);
+                 })
+             },
+             checkUsername(){
+                if (this.user.username == ""){
+                    this.msg = "用户名不能为空";
+                    this.infoColor = "red"
+                    return
+                }
+                axios.get("/user/checkUsername?username="+this.user.username).then(
+                    resp=>{
+                        let data = resp.data;
+                        if (data.success){
+                            this.msg = "";
+                            this.infoColor = "black"
+                        }else {
+                            this.msg = data.message;
+                            this.infoColor = "red"
+                        }
+                    }
+                ).catch()
+             },
+             sendSms(){
+                 let reg = /^1[345678]\d{9}$/
+                 if (!reg.test(this.user.telephone)){
                      this.msg = "手机号不合法"
                      this.infoColor = "red";
                      return
                  }
                  //如果发送json 格式，一定要用post请求；
-                 axios.post("/user/register",this.user).then(resp=>{
-                    let data = resp.data;
-                    if (data.success){
-                        this.$message.info("注册成功")
-                        this.msg = "注册成功"
-                        this.infoColor = "black";
-                    }else {
-                        this.msg = "注册失败"
-                        this.infoColor = "red";
-                    }
+                 axios.get("/user/sendSms?telephone="+this.user.telephone).then(resp=>{
+                     let resultInfo = resp.data;
+                     console.log("==resultInfo:"+JSON.stringify(resultInfo))
+                     if (resultInfo.success){
+                         this.infoColor = "green";
+                     }else {
+                         this.infoColor = "red";
+                     }
+                     this.countDown(10);
+
+                     this.msg = resultInfo.message;
+
                  }).catch(err=>{
-                     this.$message.warning(err.message)
+                     alert(err.message)
+                     //this.$message.info(err.message);
                  })
+             },
+             countDown(num){
+                 this.btnDisable = true;
+                 let timeID = setInterval(()=>{
+                     num--;
+                     this.btnText = `${num}秒后可重新发送`
+
+                     if  (num <= 0){
+                        this.btnDisable = false
+                        this.btnText = "发送手机验证码"
+                        clearInterval(timeID)
+                    }
+                 },1000)
+
              }
          }
      })

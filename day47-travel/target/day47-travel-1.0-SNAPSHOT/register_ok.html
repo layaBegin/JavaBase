@@ -32,13 +32,27 @@
 <!-- 头部 end -->
 <div id="app">
     <span style="font-size: 30px">恭喜您，注册成功！</span>
-    <div><span id="resultSpan">5</span>秒后，跳转到 <a href="login.html">登录页面</a></div>
+    <div><span id="resultSpan">{{num}}</span>秒后，跳转到 <a href="login.html">登录页面</a></div>
 </div>
 <!--引入尾部-->
 <div id="footer">
 </div>
 <script src="js/include.js"></script>
 <script type="text/javascript">
+    new Vue({
+        el:"#app",
+        data:{
+            num:5
+        },
+        created(){
+            setInterval(()=>{
+                this.num--
+                if(this.num <=0){
+                    location.replace("/index.html")
+                }
+            },1000,5)
+        }
+    })
 </script>
 </body>
 </html>
