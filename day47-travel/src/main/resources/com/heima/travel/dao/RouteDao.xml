@@ -61,6 +61,9 @@ namespace 指定接口的类全名
             <if test="cid!=0">
                 cid=#{cid}
             </if>
+            <if test="rname!= null and rname!=''">
+                and rname like concat('%',#{rname},'%')
+            </if>
         </where>
     </select>
 </mapper>

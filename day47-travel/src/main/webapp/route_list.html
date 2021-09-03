@@ -28,8 +28,8 @@
             <p>黑马旅行><span>搜索结果</span></p>
         </div>
         <div class="search">
-            <input id="rname" name="rname" type="text" placeholder="请输入路线名称" class="search_input" autocomplete="off">
-            <a href="javascript:;"  class="search-button">搜索</a>
+            <input id="rname" name="rname" v-model="rname" type="text" placeholder="请输入路线名称" class="search_input" autocomplete="off">
+            <a href="javascript:;" @click="search"  class="search-button">搜索</a>
         </div>
         <div class="hot_pic">
             <img src="images/hot_tel.jpg" alt="">
@@ -64,27 +64,10 @@
                     </li>
                 </ul>
                 <div class="page_num_inf">
-                        <i></i> 共
-                        <span>12</span>页<span>132</span>条
-                    </div>
-                    <div class="pageNum">
-                        <ul>
-                            <li><a href="">首页</a></li>
-                            <li class="threeword"><a href="#">上一页</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">6</a></li>
-                            <li><a href="#">7</a></li>
-                            <li><a href="#">8</a></li>
-                            <li><a href="#">9</a></li>
-                            <li><a href="#">10</a></li>
-                            <li class="threeword"><a href="javascript:;">下一页</a></li>
-                            <li class="threeword"><a href="javascript:;">末页</a></li>
-                        </ul>
-                    </div>
+                    <zpage-nav :page="pageInfo.pageNum" :total="pageInfo.total" :page-size="pageInfo.pageSize" :max-page="maxPage" @pageHandler="changePage">
+                    </zpage-nav>
+                </div>
+
             </div>
         </div>
     </div>
@@ -98,12 +81,24 @@
         data:{
             cid:0,
             pageInfo:{},
+            maxPage:10,
+            rname:"",
         },
         methods:{
             changePage(pageNum){
+
                 let cid = getParameter("cid") || 0;
                 this.cid = cid
-                axios.get("/route/find?cid=" + this.cid+"&currentPage="+pageNum).then(resp=>{
+                axios.get("/route/find?cid=" + this.cid+"&currentPage="+pageNum+"&rname="+this.rname).then(resp=>{
+                    let pageInfo = resp.data;
+                    this.pageInfo = pageInfo;
+                    console.log("pageInfo:"+JSON.stringify(pageInfo));
+                }).catch(err=>{
+                    alert(err.message)
+                })
+            },
+            search(){
+                axios.get("/route/find?rname=" + this.rname).then(resp=>{
                     let pageInfo = resp.data;
                     this.pageInfo = pageInfo;
                     console.log("pageInfo:"+JSON.stringify(pageInfo));
