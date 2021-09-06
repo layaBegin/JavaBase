@@ -18,4 +18,6 @@ public interface RouteDao {
     Map<String,Object> findRouteByRid(Integer rid);
     @Select("SELECT * FROM tab_route_img WHERE rid=#{rid}")
     List<RouteImg> findRouteImageByRid(Integer rid);
+    @Select("SELECT * FROM tab_route WHERE rid=#{rid}")
+    Route findRoute(int rid);
 }

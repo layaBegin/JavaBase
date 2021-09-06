@@ -26,15 +26,15 @@
         <!--主内容-->
         <div class="checkout py-container  pay">
             <div class="checkout-tit">
-                <h4 class="fl tit-txt"><span class="success-icon"></span><span  class="success-info">订单提交成功，请您及时付款！订单号：56789065645</span></h4>
-                <span class="fr"><em class="sui-lead">应付金额：</em><em  class="orange money">￥17,654</em>元</span>
+                <h4 class="fl tit-txt"><span class="success-icon"></span><span  class="success-info">订单提交成功，请您及时付款！订单号：{{oid}}</span></h4>
+                <span class="fr"><em class="sui-lead">应付金额：</em><em  class="orange money">￥{{total}}</em>元</span>
                 <div class="clearfix"></div>
             </div>
             <div class="checkout-steps">
                 <div class="fl weixin">微信支付</div>
                 <div class="fl sao">
-                    <div class="fl code">
-                        <img src="img/erweima.png" alt="">
+                    <div id="code" class="fl code">
+
                     </div>
 					
                     <div class="fl" style="background:url(./img/phone-bg.png) no-repeat;width:350px;height:400px;margin-left:40px"></div>
@@ -48,4 +48,51 @@
 <!--引入尾部-->
 <footer id="footer"></footer>
 </body>
+<script type="text/javascript">
+    new Vue({
+        el:"#app",
+        data:{
+            oid:"",
+            total:0,
+        },
+        methods:{
+            createUrl(){
+                this.oid = getParameter("oid");
+                this.total = getParameter("total");
+                let param = `oid=${this.oid}&total=${this.total}`
+                axios.get("/pay/createUrl?"+param).then(resp=>{
+                    let payUrl = resp.data;
+                    new QRCode("code",payUrl)
+                }).catch(err=>{
+
+                })
+            },
+            checkOrderStatus(){
+                setInterval(()=>{
+                    axios.get("/pay/findStatus?oid="+this.oid).then(resp=>{
+                        let bOk = resp.data;
+                        if (bOk){
+                            location.href = "pay_success.html?total="+this.total
+                        }else {
+
+                        }
+                    }).catch()
+                },5000)
+
+            },
+            checkTimeOut(){
+                setTimeout(()=>{
+                    location.href = "pay_fail.html;
+
+                },1000 * 60)
+            }
+
+        },
+        created(){
+            this.createUrl();
+            this.checkOrderStatus();
+            this.checkTimeOut()
+        }
+    });
+</script>
 </html>

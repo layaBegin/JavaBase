@@ -35,16 +35,12 @@
                             <ul class="addr-detail">
                                 <li class="addr-item">
                                     <div>
-                                        <div class="con address">
-										        <input type="radio" name="addressId" value="1"> 
-										        波波 北京市海淀区三环内 中关村软件园9号楼 
-												<span>159****3201</span>
-										     </div>
-                                        <div class="con address">
-										         <input type="radio" name="addressId" value="2"> 
-												 美美 北京市海淀区三环内 中关村软件园9号楼 
-												 <span>159****3201</span>
-										     </div>
+                                        <div class="con address" v-for="adds in addressList">
+										        <input type="radio" v-model="aid" name="addressId" :value="adds.aid">
+										        {{adds.contact}} {{adds.address}}
+												<span>{{adds.telephone}}</span>
+										 </div>
+
                                         <div class="clearfix"></div>
                                     </div>
                                 </li>
@@ -71,22 +67,22 @@
                         <div class="step-cont">
                             <ul class="send-detail">
                                 <li>
-                                    <div class="sendGoods">
-                                        <ul class="yui3-g">
+                                    <div class="sendGoods" v-for="cartItem in cart.cartItemMap">
+                                        <ul class="yui3-g" >
                                             <li class="yui3-u-1-6">
-                                                <span><img src="images/04-search_03.jpg"/></span>
+                                                <span><img :src="cartItem.route.rimage"/></span>
                                             </li>
                                             <li class="yui3-u-7-12" style="padding: 0px 8px">
-                                                <div class="desc">【减100元 含除夕/春节出发】广州增城三英温泉度假酒店/自由行套票</div>
+                                                <div class="desc">{{cartItem.route.rname}}</div>
                                             </li>
                                             <li class="yui3-u-1-12">
-                                                <div class="price">￥5399.00</div>
+                                                <div class="price">￥{{cartItem.route.price}}</div>
                                             </li>
                                             <li class="yui3-u-1-12">
-                                                <div class="num">&times;2</div>
+                                                <div class="num">&times;{{cartItem.num}}</div>
                                             </li>
                                             <li class="yui3-u-1-12">
-                                                <div class="exit">￥19283</div>
+                                                <div class="exit">￥{{cartItem.subTotal}}</div>
                                             </li>
                                         </ul>
                                     </div>
@@ -99,11 +95,11 @@
             </div>
             <div class="clearfix trade">
                 <div class="fc-price">
-                   <span class="number">1</span>件商品，应付金额:　<span class="price">¥5399.00</span>
+                   <span class="number">1</span>件商品，应付金额:　<span class="price">¥{{cart.cartTotalMoney}}</span>
                 </div>
             </div>
             <div class="submit">
-                <button class="sui-btn btn-danger btn-xlarge"  type="button">提交订单</button>
+                <button class="sui-btn btn-danger btn-xlarge"  @click="submitOrder" type="button">提交订单</button>
             </div>
         </div>
     </form>
@@ -111,4 +107,51 @@
 <!-- 底部栏位 -->
 <footer id="footer"></footer>
 </body>
+<script type="text/javascript">
+    new Vue({
+        el:"#app",
+        data:{
+            addressList:[],
+            cart:{},
+            aid:0, //默认地址
+        },
+        methods:{
+            prepareOrder(){
+                axios.get("/order/address").then(resp=>{
+                    let resultInfo = resp.data;
+                    if (resultInfo.success){
+                        this.addressList = resultInfo.data.addressList;
+                        this.cart = resultInfo.data.cart;
+                        for (let address of this.addressList){
+                            if (address.isdefault == 1){
+                                this.aid = address.aid;
+                            }
+                        }
+                    }else {
+                        location.href = "login.html"
+                    }
+                }).catch(err=>{
+                    alert(err.message)
+                })
+            },
+
+            submitOrder(){
+                axios.get("/order/save?aid="+this.aid).then(resp=>{
+                    let resultInfo = resp.data;
+                    if (resultInfo.success){
+                        let order = resultInfo.data
+                        console.log("==order:"+JSON.stringify(order))
+                        location.href=`pay.html?oid=${order.oid}&total=${order.total}`
+
+                    }else {
+                        location.href="login.html"
+                    }
+                })
+            }
+        },
+        mounted(){
+            this.prepareOrder();
+        }
+    })
+</script>
 </html>

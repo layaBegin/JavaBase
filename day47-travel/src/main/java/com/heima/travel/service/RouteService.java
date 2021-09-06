@@ -16,5 +16,6 @@ public interface RouteService {
     PageInfo<Route> findRouteByCid(int cid,int pagenum,String rname);
 
     Route findRouteByRid(Integer rid) throws InvocationTargetException, IllegalAccessException;
+    Route findRoute(int rid);
 
 }

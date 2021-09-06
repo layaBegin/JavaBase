@@ -27,7 +27,7 @@ public class TestUser {
     @Autowired
     private RouteService routeService;
 
-    @Test
+   /* @Test
     public void testRoute(){
         PageInfo<Route> pageInfo = routeService.findRouteByCid(1, 1);
         System.out.println("总记录数："+ pageInfo.getTotal());
@@ -35,5 +35,5 @@ public class TestUser {
         System.out.println("当前页："+ pageInfo.getPageNum());
         System.out.println("页面的大小："+ pageInfo.getPageSize());
         System.out.println("页面的数据："+ pageInfo.getList());
-    }
+    }*/
 }

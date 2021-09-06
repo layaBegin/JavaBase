@@ -29,19 +29,19 @@
             </tr>
             <tr class="table-bordered">
                 <td>
-                    <img src="images/04-search_03.jpg" width="170" height="100">
+                    <img :src="route.rimage" width="170" height="100">
                 </td>
                 <td width="45%">
-                    <a target="_blank" href="#">【春节 普陀山祈福+珞珈山 双飞4天 纯玩】西天景区参拜观世音 普陀山三大佛寺祈愿阖家安康</a>
+                    <a target="_blank" href="#">{{route.rname}}</a>
                 </td>
                 <td width="10%">
-                    ￥1000
+                    ￥{{route.price}}
                 </td>
                 <td width="14%">
-                    ×3
+                    ×{{cartItem.num}}
                 </td>
                 <td width="15%">
-                    <span style="color:red; font-weight: bolder">￥3000</span>
+                    <span style="color:red; font-weight: bolder">￥{{cartItem.subTotal}}</span>
                 </td>
             </tr >
 
@@ -52,7 +52,31 @@
 <!--引入尾部-->
 <div id="footer"></div>
 <script type="text/javascript">
+    new Vue({
+        el:"#cart",
+        data:{
+            cartItem:{},
+            route:{}
+        },
+        methods:{
+            showCartItem(){
+                axios.get("/cart/showCartItem").then(resp=>{
+                    let resultInfo = resp.data;
+                    if (resultInfo.success){
+                        this.cartItem = resultInfo.data;
+                        this.route = this.cartItem.route;
+                    }else{
 
+                    }
+                }).catch(err=>{
+                    alert(err.message);
+                })
+            }
+        },
+        mounted(){
+            this.showCartItem();
+        }
+    })
 </script>
 </body>
 </html>

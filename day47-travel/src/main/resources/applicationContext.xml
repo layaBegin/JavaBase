@@ -63,7 +63,7 @@
 
     <!--2. 负责service层   事务管理-->
     <!-- 2.1扫描业务类 -->
-    <context:component-scan base-package="com.heima.travel.service"/>
+    <context:component-scan base-package="com.heima.travel.service,com.heima.travel.utils"/>
      <!-- 2.2创建事务管理器 -->
      <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
          <property name="dataSource" ref="dataSource"/>

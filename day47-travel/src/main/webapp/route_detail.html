@@ -54,10 +54,10 @@
                 </p>
                 <div class="p_number">
                     <div class="f_l add_chose">
-                        <input type="text" name="num" value="1" id="num" class="text"/>
+                        <input type="text" name="num" v-model="num" id="num" class="text"/>
                     </div>
                     <span class="collect">
-                         <a class="btn" href="cart_success.html" id="addCart"><i class="glyphicon glyphicon-heart-empty"></i>加入购物车</a>
+                         <a class="btn" href="javascript:;" id="addCart" @click="addToCart"><i class="glyphicon glyphicon-heart-empty"></i>加入购物车</a>
                     </span>
                 </div>
 
@@ -105,20 +105,41 @@
             category:{},
             seller:{},
             routeImageList:[],
-            firstImage:{}
+            firstImage:{},
+            num:1,
+
         },
         methods:{
             showDetails(){
                 this.rid = getParameter("rid")
                 axios.get("/route/findRouteByRid?rid="+this.rid).then(resp=>{
-                    let route = resp.data;
-                    this.category = route.category;
-
-                    this.seller = route.seller;
-                    this.routeImageList = route.routeImgList
+                    this.route = resp.data;
+                    this.category = this.route.category;
+                    console.log("===route:"+JSON.stringify(this.route))
+                    this.seller = this.route.seller;
+                    this.routeImageList = this.route.routeImgList
                     this.firstImage = this.routeImageList[0]
                 }).catch()
 
+            },
+            addToCart(){
+                if (this.num < 1){
+                    alert("购买数量必须大于1")
+                    return
+                }
+                let parma = `num=${this.num}&rid=${this.route.rid}`
+                axios.get("/cart/addToCart?"+parma).then(resp=>{
+                    let resultInfo = resp.data;
+
+                    if (resultInfo.success){
+                        location.href = "cart_success.html"
+                    }else {//未登录的情况
+                        alert(resultInfo.message)
+                        location.href = "login.html"
+                    }
+                }).catch(err=>{
+                    alert(err.message)
+                })
             }
         },
         created(){

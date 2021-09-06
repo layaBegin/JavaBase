@@ -49,5 +49,9 @@ public class RouteServiceImpl implements RouteService {
         return route;
     }
 
+    public Route findRoute(int rid){
+        return routeDao.findRoute(rid);
+    }
+
 
 }
