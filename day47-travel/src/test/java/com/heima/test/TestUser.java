@@ -1,3 +1,4 @@
+/*
 package com.heima.test;
 
 import com.github.pagehelper.PageInfo;
@@ -15,19 +16,22 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("classpath:applicationContext.xml")
 public class TestUser {
 
-    /*@Autowired
+    */
+/*@Autowired
     private UserService userService;
     @Test
     public void testUser(){
         User user = new User(0,"litty","123","123456765",null);
         userService.register(user);
 
-    }*/
+    }*//*
+
 
     @Autowired
     private RouteService routeService;
 
-   /* @Test
+   */
+/* @Test
     public void testRoute(){
         PageInfo<Route> pageInfo = routeService.findRouteByCid(1, 1);
         System.out.println("总记录数："+ pageInfo.getTotal());
@@ -35,5 +39,7 @@ public class TestUser {
         System.out.println("当前页："+ pageInfo.getPageNum());
         System.out.println("页面的大小："+ pageInfo.getPageSize());
         System.out.println("页面的数据："+ pageInfo.getList());
-    }*/
+    }*//*
+
 }
+*/

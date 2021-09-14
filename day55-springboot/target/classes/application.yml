@@ -1,0 +1,22 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.199.130:3306/day54springboot
+    username: root
+    password: root
+#  redis:
+#    host: localhost
+#    port: 6379
+mybatis:
+  #别名扫描
+  type-aliases-package: com.heima.model
+  #开启下划线与小驼峰映射
+  configuration:
+    map-underscore-to-camel-case: true
+    #开启sql语句的日志记录
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #指定mapper.xml文件的位置
+  mapper-locations:
+    - classpath:mappers/*.xml
+

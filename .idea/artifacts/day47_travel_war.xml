@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="day47-travel:war">
+    <output-path>$PROJECT_DIR$/day47-travel/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>day47-travel</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="day47-travel-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="day47-travel:war exploded" />
+    </root>
+  </artifact>
+</component>

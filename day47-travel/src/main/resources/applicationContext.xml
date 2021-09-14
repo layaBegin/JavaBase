@@ -9,7 +9,7 @@
     <!--1. 创建redis的独立配置类  配置redis的ip地址与端口-->
     <bean id="standaloneConfiguration" class="org.springframework.data.redis.connection.RedisStandaloneConfiguration">
         <!--连接redis的主机名（ip地址）-->
-        <property name="hostName" value="localhost"/>
+        <property name="hostName" value="192.168.199.130"/>
         <!--redis使用的端口-->
         <property name="port" value="6379"/>
     </bean>

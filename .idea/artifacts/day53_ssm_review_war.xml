@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="day53-ssm-review:war">
+    <output-path>$PROJECT_DIR$/day53-ssm-review/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>day53-ssm-review</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="day53-ssm-review-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="day53-ssm-review:war exploded" />
+    </root>
+  </artifact>
+</component>

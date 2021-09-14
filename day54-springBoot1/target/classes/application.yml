@@ -1,0 +1,36 @@
+#冒号： 后要有空格才能写东西，缩进固定是tab键
+server:
+  port: 9090
+  servlet:
+    context-path: /
+
+#定义简单属性
+my:
+  port: 6379
+  host: localhost
+  name: yunteng
+  #引用类型数据
+  user:
+      id: 1
+      name: zhangshan
+      age: 18
+#  数组类型
+  address:
+    - 广州
+    - 深圳
+    - 上海
+  userList:
+    - id: 1
+      name: zhangshan
+      age: 18
+    - id: 1
+      name: zhangshan
+      age: 18
+#logging:
+#  level:
+#    root: debug
+
+# 配置日志
+logging:
+  level:
+    com.heima: debug

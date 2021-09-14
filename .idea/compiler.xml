@@ -21,7 +21,9 @@
         <module name="day36-02-Spring-muti-import" />
         <module name="day36-01-jdbcTemplate" />
         <module name="day42-02-exercise" />
+        <module name="day36-04-Spring-xml-annotation" />
         <module name="day43-04-ssm-vue" />
+        <module name="day53-ssm-review" />
         <module name="day39-01-spring-MVC" />
         <module name="day36-01-jdbcTemplate (1)" />
         <module name="day35-02-annotation" />
@@ -30,15 +32,16 @@
         <module name="day41-02-a" />
         <module name="day37-06-transaction-annotation" />
         <module name="day48-01-spring_redis" />
-        <module name="day38-01-springMVC" />
         <module name="day37-01-aop" />
-        <module name="day36-04-Spring-xml-annotation" />
+        <module name="day38-01-springMVC" />
         <module name="ssm-web" />
         <module name="day40-01-Interceptor" />
+        <module name="day47-travel" />
         <module name="day44-day45-ssm-vue-element" />
         <module name="day40-02-ssm" />
         <module name="day36-07-cglib-proxy" />
         <module name="day36-05-Spring-annotation" />
+        <module name="day54-springBoot_demo" />
         <module name="day41-07-child" />
         <module name="day37-04-aop-annotation" />
       </profile>
@@ -80,11 +83,19 @@
       <module name="day42-02-exercise" target="1.8" />
       <module name="day43-04-ssm-vue" target="1.8" />
       <module name="day44-day45-ssm-vue-element" target="1.8" />
+      <module name="day47-travel" target="1.8" />
       <module name="day48-01-spring_redis" target="1.8" />
+      <module name="day53-ssm-review" target="1.8" />
+      <module name="day54-springBoot_demo" target="1.8" />
       <module name="ssm-dao" target="1.8" />
       <module name="ssm-entity" target="1.8" />
       <module name="ssm-service" target="1.8" />
       <module name="ssm-web" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="day54-springBoot_demo" options="-parameters" />
+    </option>
   </component>
 </project>
