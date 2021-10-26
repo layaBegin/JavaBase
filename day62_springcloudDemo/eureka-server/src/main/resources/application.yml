@@ -1,0 +1,14 @@
+server:
+  port:  ${port:8761} # eureka服务端，默认端口
+spring:
+  application:
+    name: eureka-server # 应用名称，会在Eureka中作为服务的id标识（serviceId）
+eureka:
+  client:
+    service-url: # EurekaServer的地址，现在是自己的地址，如果做集群，需要写其它服务实例（节点）的地址。
+      defaultZone: ${defaultZone:http://localhost:8761/eureka}
+    fetch-registry: true # 拉取服务,默认为true：自动拉取服务
+    register-with-eureka: true # 注册服务
+  server:
+    eviction-interval-timer-in-ms: 4000 # 设置4s执行一次检测定时任务. 默认60
+    enable-self-preservation: false # 关闭自我保护机制

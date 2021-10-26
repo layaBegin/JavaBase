@@ -9,6 +9,7 @@ public class ProfileController {
 
     @RequestMapping("/profile")
     public String profileTest(){
+
         return "激活profile";
     }
 }

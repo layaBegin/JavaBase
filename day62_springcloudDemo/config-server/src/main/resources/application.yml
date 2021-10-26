@@ -1,0 +1,32 @@
+server:
+  port: 12000
+
+spring:
+  application:
+    name: config-server
+
+  cloud:
+    config:
+      server:
+        default-label: main
+        git:
+          # 配置git地址
+          uri: https://github.com/layaBegin/springCloudConfig.git
+  # rabbitmq的配置信息；如下配置的rabbit都是默认值，其实可以完全不配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka,http://localhost:8762/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        # 暴露触发消息总线的地址(发送消息到rabbitmq)
+        include: bus-refresh

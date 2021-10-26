@@ -7,46 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ssm-entity" />
-        <module name="day42-01-jedis" />
-        <module name="day34-04-aera" />
-        <module name="day41-04-nexus-a" />
-        <module name="day35-01-Spring" />
-        <module name="day36-02-Spring-CRUD" />
-        <module name="day39-01-SpringMVC" />
-        <module name="day34-03-myutils" />
-        <module name="day41-05-nexus-b" />
-        <module name="ssm-service" />
-        <module name="ssm-dao" />
-        <module name="day36-02-Spring-muti-import" />
-        <module name="day36-01-jdbcTemplate" />
-        <module name="day42-02-exercise" />
-        <module name="day36-04-Spring-xml-annotation" />
-        <module name="day43-04-ssm-vue" />
-        <module name="day53-ssm-review" />
-        <module name="day39-01-spring-MVC" />
+        <module name="user-service" />
+        <module name="eureka-server" />
         <module name="day36-01-jdbcTemplate (1)" />
-        <module name="day35-02-annotation" />
-        <module name="day37-05-transaction" />
-        <module name="day37-02-around" />
-        <module name="day41-02-a" />
-        <module name="day37-06-transaction-annotation" />
-        <module name="day48-01-spring_redis" />
-        <module name="day37-01-aop" />
-        <module name="day38-01-springMVC" />
-        <module name="ssm-web" />
-        <module name="day40-01-Interceptor" />
-        <module name="day47-travel" />
-        <module name="day44-day45-ssm-vue-element" />
-        <module name="day40-02-ssm" />
-        <module name="day36-07-cglib-proxy" />
-        <module name="day36-05-Spring-annotation" />
+        <module name="config-server" />
+        <module name="day39-01-SpringMVC" />
+        <module name="order-service" />
         <module name="day54-springBoot_demo" />
-        <module name="day41-07-child" />
-        <module name="day37-04-aop-annotation" />
+        <module name="gateway-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="config-server" target="1.8" />
       <module name="day34-01-web" target="1.8" />
       <module name="day34-02-web" target="1.8" />
       <module name="day34-03-myutils" target="1.8" />
@@ -86,16 +58,35 @@
       <module name="day47-travel" target="1.8" />
       <module name="day48-01-spring_redis" target="1.8" />
       <module name="day53-ssm-review" target="1.8" />
+      <module name="day54-springBoot1" target="1.8" />
       <module name="day54-springBoot_demo" target="1.8" />
+      <module name="day60_RocketMQ" target="1.8" />
+      <module name="day60_RocketMQ_consumer" target="1.8" />
+      <module name="day62_SpringCloud1" target="1.8" />
+      <module name="day62_springcloudDemo" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="gateway-server" target="1.8" />
+      <module name="order-service" target="1.8" />
       <module name="ssm-dao" target="1.8" />
       <module name="ssm-entity" target="1.8" />
       <module name="ssm-service" target="1.8" />
       <module name="ssm-web" target="1.8" />
+      <module name="user-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="config-server" options="-parameters" />
+      <module name="day54-springBoot1" options="-parameters" />
       <module name="day54-springBoot_demo" options="-parameters" />
+      <module name="day60_RocketMQ" options="-parameters" />
+      <module name="day60_RocketMQ_consumer" options="-parameters" />
+      <module name="day62_SpringCloud1" options="-parameters" />
+      <module name="day62_springcloudDemo" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="gateway-server" options="-parameters" />
+      <module name="order-service" options="-parameters" />
+      <module name="user-service" options="-parameters" />
     </option>
   </component>
 </project>

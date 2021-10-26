@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://myroot:1234567@192.168.199.130:27017/admin #验证的数据库
+      database: testDB1  #这里需要指定数据库只有是超级管理员身份

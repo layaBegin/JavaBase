@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.heima</groupId>
+    <artifactId>day62_springcloudDemo</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>user-service</module>
+        <module>order-service</module>
+        <module>eureka-server</module>
+        <module>gateway-server</module>
+        <module>config-server</module>
+    </modules>
+
+    <!-- 配置父级，这样每个子工程也可以间接继承springboot -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.6.RELEASE</version>
+    </parent>
+
+    <!-- 配置全局属性 -->
+
+    <properties>
+        <mybatisPlus.version>3.4.0</mybatisPlus.version>
+        <!--修改mysql版本，默认是8.X.X-->
+        <mysql.version>5.1.47</mysql.version>
+        <springcloud.version>Greenwich.SR2</springcloud.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring-cloud (导入pom文件)
+                 scope: import 只能在<dependencyManagement>元素里面配置
+            -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${springcloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--mybatisplus启动器-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatisPlus.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+    <!-- 子工程会继承该依赖 -->
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!-- 打包插件, 父工程加了，子工程也有了 -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
+
+</project>

@@ -1,0 +1,31 @@
+server:
+  port: 8080 # 端口不能和user-service冲突了
+spring:
+  application:
+    name: order-service # 应用名称
+eureka:
+  client:
+    service-url: # eurekaServer地址
+      defaultZone: http://localhost:8761/eureka,http://localhost:8762/eureka
+    registry-fetch-interval-seconds: 30 # 获取服务间隔时间(默认30秒)
+# 格式：{服务名称}.ribbon.NFLoadBalancerRuleClassName
+#负载均衡策略，默认轮询，可以改为随机
+user-service:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    ConnectTimeout: 2000 # 建立连接的超时时长(默认,注意这是连接微服务超时时间,不能更改)
+    ReadTimeout: 2300 # 读取响应数据超时时长(注意这是调用微服务获取响应数据超时时间)
+    MaxAutoRetries: 0 # 调用的第一个节点的重试次数(默认)
+    MaxAutoRetriesNextServer: 1 # 其他节点会重试多少个服务节点(默认)
+    OkToRetryOnAllOperations: false # true所有超时请求都重试(默认false，代表只重试Get请求)，如果不能保证被调用服务的幂等性，请设置为false。
+# 线程隔离
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000 # 默认1s
+logging:
+  level:
+    com.heima: debug

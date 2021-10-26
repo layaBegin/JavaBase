@@ -7,13 +7,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="day53-ssm-review" />
+        <module name="day55-springboot-profile" />
+        <module name="day54-springBoot1" />
         <module name="day55-springboot" />
+        <module name="day55-mybatis-plus" />
+        <module name="day55-springboot-jedis" />
+        <module name="day55-mybatis-plus-codeGenerator" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="day54-springBoot1" options="-parameters" />
+      <module name="day55-mybatis-plus" options="-parameters" />
+      <module name="day55-mybatis-plus-codeGenerator" options="-parameters" />
       <module name="day55-springboot" options="-parameters" />
+      <module name="day55-springboot-jedis" options="-parameters" />
+      <module name="day55-springboot-profile" options="-parameters" />
     </option>
   </component>
 </project>

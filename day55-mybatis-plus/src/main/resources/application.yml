@@ -1,7 +1,11 @@
+server:
+  port: 9090
+  servlet:
+    context-path: /
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.199.130/day55mybatisplus
+    url: jdbc:mysql://192.168.199.130:3306/day55mybatisplus?useSSL=false
     username: root
     password: root
 mybatis-plus:

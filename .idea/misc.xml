@@ -26,45 +26,15 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/day34-03-myutils/pom.xml" />
-        <option value="$PROJECT_DIR$/day34-04-aera/pom.xml" />
-        <option value="$PROJECT_DIR$/day35-01-Spring/pom.xml" />
-        <option value="$PROJECT_DIR$/day35-02-annotation/pom.xml" />
-        <option value="$PROJECT_DIR$/day36-01-jdbcTemplate/pom.xml" />
-        <option value="$PROJECT_DIR$/day36-02-Spring-CRUD/pom.xml" />
-        <option value="$PROJECT_DIR$/day36-02-Spring-muti-import/pom.xml" />
-        <option value="$PROJECT_DIR$/day36-04-Spring-xml-annotation/pom.xml" />
-        <option value="$PROJECT_DIR$/day36-05-Spring-annotation/pom.xml" />
-        <option value="$PROJECT_DIR$/day36-05-Spring-annotation/day36-07-cglib-proxy/pom.xml" />
-        <option value="$PROJECT_DIR$/day37-01-aop/pom.xml" />
-        <option value="$PROJECT_DIR$/day37-02-around/pom.xml" />
-        <option value="$PROJECT_DIR$/day37-04-aop-annotation/pom.xml" />
-        <option value="$PROJECT_DIR$/day37-05-transaction/pom.xml" />
-        <option value="$PROJECT_DIR$/day37-06-transaction-annotation/pom.xml" />
-        <option value="$PROJECT_DIR$/day38-01-springMVC/pom.xml" />
         <option value="$PROJECT_DIR$/day39-01-SpringMVC/pom.xml" />
-        <option value="$PROJECT_DIR$/day39-01-spring-MVC/pom.xml" />
-        <option value="$PROJECT_DIR$/day40-01-Interceptor/pom.xml" />
-        <option value="$PROJECT_DIR$/day40-02-ssm/pom.xml" />
         <option value="$PROJECT_DIR$/../day40(SSM整合与综合练习)/代码/day41-01-system/pom.xml" />
         <option value="$PROJECT_DIR$/../day40(SSM整合与综合练习)/代码/day41-02-a/pom.xml" />
         <option value="$PROJECT_DIR$/../day40(SSM整合与综合练习)/代码/day41-03-b/pom.xml" />
         <option value="$PROJECT_DIR$/../day40(SSM整合与综合练习)/代码/day41-04-nexus-a/pom.xml" />
-        <option value="$PROJECT_DIR$/day41-04-nexus-a/pom.xml" />
-        <option value="$PROJECT_DIR$/day41-05-nexus-b/pom.xml" />
         <option value="$PROJECT_DIR$/day41-06-parent/pom.xml" />
-        <option value="$PROJECT_DIR$/day41-07-parent/pom.xml" />
-        <option value="$PROJECT_DIR$/day41-02-a/pom.xml" />
-        <option value="$PROJECT_DIR$/day41-08-exercise-parent/pom.xml" />
         <option value="$PROJECT_DIR$/../day42-01-jedis/pom.xml" />
-        <option value="$PROJECT_DIR$/day42-01-jedis/pom.xml" />
-        <option value="$PROJECT_DIR$/day43-04-ssm-vue/pom.xml" />
-        <option value="$PROJECT_DIR$/day42-02-exercise/pom.xml" />
-        <option value="$PROJECT_DIR$/day44-day45-ssm-vue-element/pom.xml" />
-        <option value="$PROJECT_DIR$/day48-01-spring_redis/pom.xml" />
-        <option value="$PROJECT_DIR$/day53-ssm-review/pom.xml" />
         <option value="$PROJECT_DIR$/day54-springBoot_demo/pom.xml" />
-        <option value="$PROJECT_DIR$/day47-travel/pom.xml" />
+        <option value="$PROJECT_DIR$/day62_springcloudDemo/pom.xml" />
       </list>
     </option>
   </component>

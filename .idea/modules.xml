@@ -21,6 +21,7 @@
       <module fileurl="file://$PROJECT_DIR$/HTML-day09-word/HTML-day09-word.iml" filepath="$PROJECT_DIR$/HTML-day09-word/HTML-day09-word.iml" />
       <module fileurl="file://$PROJECT_DIR$/HTML_01/HTML_01.iml" filepath="$PROJECT_DIR$/HTML_01/HTML_01.iml" />
       <module fileurl="file://$PROJECT_DIR$/HTML_02/HTML_02.iml" filepath="$PROJECT_DIR$/HTML_02/HTML_02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day62_springcloudDemo/config-server/config-server.iml" filepath="$PROJECT_DIR$/day62_springcloudDemo/config-server/config-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/day00/day00.iml" filepath="$PROJECT_DIR$/day00/day00.iml" />
       <module fileurl="file://$PROJECT_DIR$/day04/day04.iml" filepath="$PROJECT_DIR$/day04/day04.iml" />
       <module fileurl="file://$PROJECT_DIR$/day05/day05.iml" filepath="$PROJECT_DIR$/day05/day05.iml" />
@@ -30,48 +31,19 @@
       <module fileurl="file://$PROJECT_DIR$/day09/day09.iml" filepath="$PROJECT_DIR$/day09/day09.iml" />
       <module fileurl="file://$PROJECT_DIR$/day33_ajax/day33_ajax.iml" filepath="$PROJECT_DIR$/day33_ajax/day33_ajax.iml" />
       <module fileurl="file://$PROJECT_DIR$/day33_json/day33_json.iml" filepath="$PROJECT_DIR$/day33_json/day33_json.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day34-03-myutils/day34-03-myutils.iml" filepath="$PROJECT_DIR$/day34-03-myutils/day34-03-myutils.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day34-04-aera/day34-04-aera.iml" filepath="$PROJECT_DIR$/day34-04-aera/day34-04-aera.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day35-01-Spring/day35-01-Spring.iml" filepath="$PROJECT_DIR$/day35-01-Spring/day35-01-Spring.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day35-02-annotation/day35-02-annotation.iml" filepath="$PROJECT_DIR$/day35-02-annotation/day35-02-annotation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day36-01-jdbcTemplate/day36-01-jdbcTemplate.iml" filepath="$PROJECT_DIR$/day36-01-jdbcTemplate/day36-01-jdbcTemplate.iml" />
       <module fileurl="file://$PROJECT_DIR$/day36-02-Spring-CRUD/day36-01-jdbcTemplate (1).iml" filepath="$PROJECT_DIR$/day36-02-Spring-CRUD/day36-01-jdbcTemplate (1).iml" />
-      <module fileurl="file://$PROJECT_DIR$/day36-02-Spring-CRUD/day36-02-Spring-CRUD.iml" filepath="$PROJECT_DIR$/day36-02-Spring-CRUD/day36-02-Spring-CRUD.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day36-02-Spring-muti-import/day36-02-Spring-muti-import.iml" filepath="$PROJECT_DIR$/day36-02-Spring-muti-import/day36-02-Spring-muti-import.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day36-04-Spring-xml-annotation/day36-04-Spring-xml-annotation.iml" filepath="$PROJECT_DIR$/day36-04-Spring-xml-annotation/day36-04-Spring-xml-annotation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day36-05-Spring-annotation/day36-05-Spring-annotation.iml" filepath="$PROJECT_DIR$/day36-05-Spring-annotation/day36-05-Spring-annotation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day36-05-Spring-annotation/day36-07-cglib-proxy/day36-07-cglib-proxy.iml" filepath="$PROJECT_DIR$/day36-05-Spring-annotation/day36-07-cglib-proxy/day36-07-cglib-proxy.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day37-01-aop/day37-01-aop.iml" filepath="$PROJECT_DIR$/day37-01-aop/day37-01-aop.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day37-02-around/day37-02-around.iml" filepath="$PROJECT_DIR$/day37-02-around/day37-02-around.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day37-04-aop-annotation/day37-04-aop-annotation.iml" filepath="$PROJECT_DIR$/day37-04-aop-annotation/day37-04-aop-annotation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day37-05-transaction/day37-05-transaction.iml" filepath="$PROJECT_DIR$/day37-05-transaction/day37-05-transaction.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day37-06-transaction-annotation/day37-06-transaction-annotation.iml" filepath="$PROJECT_DIR$/day37-06-transaction-annotation/day37-06-transaction-annotation.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day38-01-springMVC/day38-01-springMVC.iml" filepath="$PROJECT_DIR$/day38-01-springMVC/day38-01-springMVC.iml" />
       <module fileurl="file://$PROJECT_DIR$/day39-01-SpringMVC/day39-01-SpringMVC.iml" filepath="$PROJECT_DIR$/day39-01-SpringMVC/day39-01-SpringMVC.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day39-01-spring-MVC/day39-01-spring-MVC.iml" filepath="$PROJECT_DIR$/day39-01-spring-MVC/day39-01-spring-MVC.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day40-01-Interceptor/day40-01-Interceptor.iml" filepath="$PROJECT_DIR$/day40-01-Interceptor/day40-01-Interceptor.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day40-02-ssm/day40-02-ssm.iml" filepath="$PROJECT_DIR$/day40-02-ssm/day40-02-ssm.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day41-02-a/day41-02-a.iml" filepath="$PROJECT_DIR$/day41-02-a/day41-02-a.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day41-04-nexus-a/day41-04-nexus-a.iml" filepath="$PROJECT_DIR$/day41-04-nexus-a/day41-04-nexus-a.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day41-05-nexus-b/day41-05-nexus-b.iml" filepath="$PROJECT_DIR$/day41-05-nexus-b/day41-05-nexus-b.iml" />
       <module fileurl="file://$PROJECT_DIR$/day41-06-parent/day41-06-parent.iml" filepath="$PROJECT_DIR$/day41-06-parent/day41-06-parent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day41-07-parent/day41-07-child/day41-07-child.iml" filepath="$PROJECT_DIR$/day41-07-parent/day41-07-child/day41-07-child.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day41-07-parent/day41-07-parent.iml" filepath="$PROJECT_DIR$/day41-07-parent/day41-07-parent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day41-08-exercise-parent/day41-08-exercise-parent.iml" filepath="$PROJECT_DIR$/day41-08-exercise-parent/day41-08-exercise-parent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day42-01-jedis/day42-01-jedis.iml" filepath="$PROJECT_DIR$/day42-01-jedis/day42-01-jedis.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day42-02-exercise/day42-02-exercise.iml" filepath="$PROJECT_DIR$/day42-02-exercise/day42-02-exercise.iml" />
       <module fileurl="file://$PROJECT_DIR$/day43-01-vue/day43-01-vue.iml" filepath="$PROJECT_DIR$/day43-01-vue/day43-01-vue.iml" />
       <module fileurl="file://$PROJECT_DIR$/day43-02-axios/day43-02-axios.iml" filepath="$PROJECT_DIR$/day43-02-axios/day43-02-axios.iml" />
       <module fileurl="file://$PROJECT_DIR$/day43-03-axios/day43-03-axios.iml" filepath="$PROJECT_DIR$/day43-03-axios/day43-03-axios.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day43-04-ssm-vue/day43-04-ssm-vue.iml" filepath="$PROJECT_DIR$/day43-04-ssm-vue/day43-04-ssm-vue.iml" />
       <module fileurl="file://$PROJECT_DIR$/day44-01-component/day44-01-component.iml" filepath="$PROJECT_DIR$/day44-01-component/day44-01-component.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day44-day45-ssm-vue-element/day44-day45-ssm-vue-element.iml" filepath="$PROJECT_DIR$/day44-day45-ssm-vue-element/day44-day45-ssm-vue-element.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day47-travel/day47-travel.iml" filepath="$PROJECT_DIR$/day47-travel/day47-travel.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day48-01-spring_redis/day48-01-spring_redis.iml" filepath="$PROJECT_DIR$/day48-01-spring_redis/day48-01-spring_redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/day49-01-zpage/day49-01-zpage.iml" filepath="$PROJECT_DIR$/day49-01-zpage/day49-01-zpage.iml" />
       <module fileurl="file://$PROJECT_DIR$/day51-01-QRCode/day51-01-QRCode.iml" filepath="$PROJECT_DIR$/day51-01-QRCode/day51-01-QRCode.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day53-ssm-review/day53-ssm-review.iml" filepath="$PROJECT_DIR$/day53-ssm-review/day53-ssm-review.iml" />
       <module fileurl="file://$PROJECT_DIR$/day54-springBoot_demo/day54-springBoot_demo.iml" filepath="$PROJECT_DIR$/day54-springBoot_demo/day54-springBoot_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day62_springcloudDemo/day62_springcloudDemo.iml" filepath="$PROJECT_DIR$/day62_springcloudDemo/day62_springcloudDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day62_springcloudDemo/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/day62_springcloudDemo/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day62_springcloudDemo/gateway-server/gateway-server.iml" filepath="$PROJECT_DIR$/day62_springcloudDemo/gateway-server/gateway-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/jinjieDay01/jinjieDay01.iml" filepath="$PROJECT_DIR$/jinjieDay01/jinjieDay01.iml" />
       <module fileurl="file://$PROJECT_DIR$/jinjieDay02/jinjieDay02.iml" filepath="$PROJECT_DIR$/jinjieDay02/jinjieDay02.iml" />
       <module fileurl="file://$PROJECT_DIR$/jinjieDay03/jinjieDay03.iml" filepath="$PROJECT_DIR$/jinjieDay03/jinjieDay03.iml" />
@@ -94,10 +66,8 @@
       <module fileurl="file://$PROJECT_DIR$/mysql/mysql.iml" filepath="$PROJECT_DIR$/mysql/mysql.iml" />
       <module fileurl="file://$PROJECT_DIR$/mysql/mysql_mybatis.iml" filepath="$PROJECT_DIR$/mysql/mysql_mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/mysql_mybatis1/mysql_mybatis1.iml" filepath="$PROJECT_DIR$/mysql_mybatis1/mysql_mybatis1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day41-08-exercise-parent/ssm-dao/ssm-dao.iml" filepath="$PROJECT_DIR$/day41-08-exercise-parent/ssm-dao/ssm-dao.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day41-08-exercise-parent/ssm-entity/ssm-entity.iml" filepath="$PROJECT_DIR$/day41-08-exercise-parent/ssm-entity/ssm-entity.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day41-08-exercise-parent/ssm-service/ssm-service.iml" filepath="$PROJECT_DIR$/day41-08-exercise-parent/ssm-service/ssm-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day41-08-exercise-parent/ssm-web/ssm-web.iml" filepath="$PROJECT_DIR$/day41-08-exercise-parent/ssm-web/ssm-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day62_springcloudDemo/order-service/order-service.iml" filepath="$PROJECT_DIR$/day62_springcloudDemo/order-service/order-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day62_springcloudDemo/user-service/user-service.iml" filepath="$PROJECT_DIR$/day62_springcloudDemo/user-service/user-service.iml" />
     </modules>
   </component>
 </project>

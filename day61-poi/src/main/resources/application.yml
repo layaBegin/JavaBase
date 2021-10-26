@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.199.130:3306/springdb
+    username: root
+    password: root
+mybatis-plus:
+  #  日志
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #mapper文件所在的位置
+  mapper-locations:
+    - classpath:mappers/*.xml
+  #别名扫描
+  type-aliases-package: cn.itcast.model

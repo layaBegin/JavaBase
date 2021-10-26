@@ -1,0 +1,42 @@
+server:
+  port: ${port:10010}
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      # 默认过滤器，对全部路由有效
+      # 配置默认过滤器(对全部路由有效)
+      default-filters:
+        # 添加响应头，响应头的名称为name 值为admin
+        - AddResponseHeader=name,admin
+        - name: Hystrix  # 配置Hystrix过滤器
+          args:          # 配置两个参数
+            name: fallbackcmd
+            fallbackUri: forward:/fallback
+      routes:
+        # 路由id,可以随意写
+        - id: user-service-route
+          # 代理的服务地址；lb表示负载均衡(从eureka中根据服务id获取服务实例)
+          uri: lb://user-service #http://localhost:9001
+          # 断言，Path: 配置路由映射路径
+          predicates:
+            - Path=/**
+          filters:
+            # 添加前缀: 指定路由路径需要添加的前缀
+            #  - PrefixPath=/user
+            # 去除前缀: 1去除一个前缀，2去除两个前缀，以此类推
+            - StripPrefix=1
+# 线程隔离
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka,http://localhost:8762/eureka
